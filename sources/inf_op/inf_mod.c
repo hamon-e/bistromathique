@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 23:19:50 2015 Nicolas Goudal
-** Last update Thu Oct 29 23:49:34 2015 Nicolas Goudal
+** Last update Fri Oct 30 00:46:14 2015 Nicolas Goudal
 */
 
 #include "the_lib.h"
@@ -16,6 +16,7 @@ static char	*mod_proc(t_op_nbr *res, t_op_nbr *nbr1, t_op_nbr *nbr2)
   int		i;
 
   i = 0;
+  res = the_malloc(sizeof(t_op_nbr));
   res->length = nbr1->length + 1;
   res->nbr = the_malloc(sizeof(char) * (res->length + 1));
   clear_str(res->nbr, res->length);

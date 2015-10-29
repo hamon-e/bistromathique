@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 22:49:59 2015 Nicolas Goudal
-** Last update Thu Oct 29 23:44:27 2015 Nicolas Goudal
+** Last update Fri Oct 30 00:45:42 2015 Nicolas Goudal
 */
 
 #include <stdlib.h>
@@ -17,6 +17,7 @@ static t_op_nbr	*init_addresult(t_op_nbr *res, t_op_nbr *nbr1, t_op_nbr *nbr2)
   int		i;
 
   i = 0;
+  res = the_malloc(sizeof(t_op_nbr));
   res->length = nbr1->length + 2;
   res->nbr = the_malloc(sizeof(char) * (res->length + 1));
   res->nbr[res->length] = '\0' - '0';
