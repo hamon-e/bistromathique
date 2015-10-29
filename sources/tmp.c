@@ -10,32 +10,10 @@
 
 #include <stdbool.h>
 #include <stdio.h>
-#include "the_lib.h"
+#include <stdlib.h>
+#include "peg.h"
 
-typedef enum	e_type
-{
-  OPP,
-  NUM
-}		t_type;
-
-typedef enum	e_sign
-{
-  PLUS = 1,
-  MINUS = -1
-}		t_sign;
-
-typedef struct	s_tree
-{
-  t_type	type;
-  t_sign	sign;
-  char		*data;
-  struct s_tree	*left;
-  struct s_tree	*right;
-}		t_tree;
-
-t_tree *pth(char *str, int *index);
-
-t_tree		*create_node(t_type type, char *str,
+t_tree		*create_node(t_type type, void *str,
 			     t_tree *left, t_tree *right)
 {
   t_tree	*new;
@@ -48,140 +26,137 @@ t_tree		*create_node(t_type type, char *str,
   return (new);
 }
 
-bool	is_upopp(char c)
+bool	is_upopp(t_data *ctrl, unsigned int index)
 {
-  if (c == '/' || c == '*' || c == '%')
+  if (ctrl->str[index] == ctrl->op_base[4])
+    return (true);
+  if (ctrl->str[index] == ctrl->op_base[5])
+    return (true);
+  if (ctrl->str[index] == ctrl->op_base[6])
     return (true);
   return (false);
 }
 
-bool	is_lowopp(char c)
+bool	is_lowopp(t_data *ctrl, unsigned int index)
 {
-  if (c == '-' || c == '+')
+  if (ctrl->str[index] == ctrl->op_base[2])
+    return (true);
+  if (ctrl->str[index] == ctrl->op_base[3])
     return (true);
   return (false);
 }
 
-bool	is_digit(char c)
+bool	is_digit(t_data *ctrl, unsigned int index)
 {
-  if (c <= '9' && c >= '0')
-    return (true);
+  int	i;
+
+  i = 0;
+  while (ctrl->nbr_base[i])
+  {
+    if (ctrl->str[index] == ctrl->nbr_base[i])
+      return (true);
+    i++;
+  }
   return (false);
 }
 
-bool	is_num(char *str, int *index)
+bool	is_num(t_data *ctrl, unsigned int *index)
 {
-  if (!is_digit(str[*index]))
+  if (!is_digit(ctrl, *index))
     return (false);
-  while (is_digit(str[*index]))
+  while (is_digit(ctrl, *index))
     ++*index;
   return (true);
 }
 
-void	the_space_consumer(char *str, int *index)
+void	the_space_consumer(t_data *ctrl, unsigned int *index)
 {
-  while (str[*index] == ' ')
+  while (ctrl->str[*index] == ' ')
     ++*index;
 }
 
-t_tree	*num(char *str, int *index)
+t_tree		*num(t_data *ctrl, unsigned int *index)
 {
-  int	index_save;
-  t_tree *test;
+  unsigned int	index_save;
+  t_tree	*test;
+  t_nbr		*nbr;
 
   index_save = *index;
-  the_space_consumer(str, &index_save);
-  test = create_node(NUM, str + index_save, NULL, NULL);
-  if (!is_num(str, &index_save))
+  the_space_consumer(ctrl, &index_save);
+  if (!is_num(ctrl, &index_save))
     return (NULL);
-  if (str[index_save] != '.')
-  {
-    *index = index_save;
-    return (test);
-  }
-  ++index_save;
-  if (!is_num(str, &index_save))
-    exit(4);
+  nbr = malloc(sizeof(t_nbr));
+  nbr->nbr = ctrl->str + *index;
+  test = create_node(NUM, nbr, NULL, NULL);
   *index = index_save;
   return (test);
 }
 
-t_tree *ope_high(char *str, int *index)
+t_tree		*ope_high(t_data *ctrl, unsigned int *index)
 {
-  int		index_save;
+  unsigned int	index_save;
   t_tree	*node;
   t_tree	*node1;
+  t_op		*op;
 
   index_save = *index;
-  if (!(node = pth(str, &index_save)))
+  if (!(node = pth(ctrl, &index_save)))
     return (NULL);
   *index = index_save;
-  the_space_consumer(str, &index_save);
-  while (is_upopp(str[index_save]))
+  the_space_consumer(ctrl, &index_save);
+  while (is_upopp(ctrl, index_save))
   {
-    node1 = create_node(OPP, str + index_save++, node, NULL);
+    op = malloc(sizeof(t_op));
+    op->c = ctrl->str[index_save++];
+    node1 = create_node(OPP, op, node, NULL);
     node1->sign = PLUS;
-    if (!(node1->right = pth(str, &index_save)))
+    if (!(node1->right = pth(ctrl, &index_save)))
       return (node);
     *index = index_save;
-    the_space_consumer(str, &index_save);
+    the_space_consumer(ctrl, &index_save);
     node = node1;
   }
   return (node);
 }
 
-t_tree *ope_low(char *str, int *index)
+t_tree		*ope_low(t_data *ctrl, unsigned int *index)
 {
-  int		index_save;
+  unsigned int	index_save;
   t_tree	*node;
   t_tree	*node1;
+  t_op		*op;
 
   index_save = *index;
-  if (!(node = ope_high(str, &index_save)))
+  if (!(node = ope_high(ctrl, &index_save)))
     return (NULL);
   *index = index_save;
-  the_space_consumer(str, &index_save);
-  while (is_lowopp(str[index_save]))
+  the_space_consumer(ctrl, &index_save);
+  while (is_lowopp(ctrl, index_save))
   {
-    node1 = create_node(OPP, str + index_save++, node, NULL);
+    op = malloc(sizeof(t_op));
+    op->c = ctrl->str[index_save++];
+    node1 = create_node(OPP, op, node, NULL);
     node1->sign = PLUS;
-    if (!(node1->right = ope_high(str, &index_save)))
+    if (!(node1->right = ope_high(ctrl, &index_save)))
       return (NULL);
     *index = index_save;
-    the_space_consumer(str, &index_save);
+    the_space_consumer(ctrl, &index_save);
     node = node1;
   }
-  the_space_consumer(str, index);
+  the_space_consumer(ctrl, index);
   return (node);
 }
 
-t_tree *pth(char *str, int *index)
+t_tree		*pth_1(t_data *ctrl, int *index, int sign, int index_save)
 {
   t_tree	*tmp;
-  int		index_save;
-  int		sign;
 
-  sign = 1;
-  index_save = *index;
-  the_space_consumer(str, &index_save);
-  while (is_lowopp(str[index_save]) || str[index_save] == ' ')
-  {
-    if (str[index_save] == '-')
-      sign *= -1;
-    ++index_save;
-  }
-  if ((tmp = num(str, &index_save)))
-  {
-    tmp->sign = sign;
-    *index = index_save;
-    return (tmp);
-  }
-  if (str[index_save] == '(')
+  if (ctrl->str[index_save] == ctrl->op_base[0])
   {
     ++index_save;
-    if (!(tmp = ope_low(str, &index_save)))
+    if (!(tmp = ope_low(ctrl, &index_save)))
       return (NULL);
-    if (str[index_save++] == ')')
+    if (ctrl->str[index_save++] == ctrl->op_base[1])
     {
       if (tmp->sign == PLUS)
 	tmp->sign = sign;
@@ -194,15 +169,42 @@ t_tree *pth(char *str, int *index)
   return (NULL);
 }
 
+t_tree		*pth(t_data *ctrl, int *index)
+{
+  t_tree	*tmp;
+  unsigned int	index_save;
+  int		sign;
+
+  sign = 1;
+  index_save = *index;
+  the_space_consumer(ctrl, &index_save);
+  while (is_lowopp(ctrl, index_save) || ctrl->str[index_save] == ' ')
+  {
+    if (ctrl->str[index_save] == ctrl->op_base[3])
+      sign *= -1;
+    ++index_save;
+  }
+  if ((tmp = num(ctrl, &index_save)))
+  {
+    tmp->sign = sign;
+    *index = index_save;
+    return (tmp);
+  }
+  return (pth_1(ctrl, index, sign, index_save));
+}
+
 int	calc(t_tree *racine)
 {
   char	opp;
+  t_op	*op;
+  t_nbr *nbr;
 
   if (!racine)
     exit(4);
-  opp = *(racine->data);
   if (racine->type == OPP)
   {
+    op = (t_op *)racine->data;
+    opp = op->c;
     if (opp == '+')
       return ((calc(racine->left) + calc(racine->right)) * racine->sign);
     if (opp == '-')
@@ -214,19 +216,6 @@ int	calc(t_tree *racine)
     if (opp == '%')
       return ((calc(racine->left) % calc(racine->right)) * racine->sign);
   }
-  return (atoi(racine->data) * racine->sign);
-}
-
-int	main(int ac, char **av)
-{
-  int	a;
-  t_tree *bonjour;
-
-  (void)ac;
-  a = 0;
-  bonjour = ope_low(av[1], &a);
-  if (a != the_strlen(av[1]))
-    exit(1);
-  printf("%d\n", calc(bonjour));
-  return (0);
+  nbr = (t_nbr *)racine->data;
+  return (atoi(nbr->nbr) * racine->sign);
 }

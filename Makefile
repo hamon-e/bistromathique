@@ -10,7 +10,10 @@
 
 NAME		=	calc
 
-SRCS_NAMES	+=	tmp.c
+SRCS_NAMES	+=	main.c	\
+			check_av.c \
+			init.c \
+			tmp.c
 
 HDRS_NAMES	+=	tmp.h
 
