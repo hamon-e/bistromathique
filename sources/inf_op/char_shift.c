@@ -1,22 +1,22 @@
 /*
-** char_shift.c for char_shift in /home/lin_p/infinadd2
-** 
-** Made by lin patrick
-** Login   <lin_p@epitech.net>
-** 
-** Started on  Mon Oct 26 16:49:34 2015 lin patrick
-** Last update Thu Oct 29 14:23:32 2015 lin patrick
+** char_shift.c for bistromathique in /home/morty/rendu/Piscine_C_bistromathique/sources/inf_op
+**
+** Made by Nicolas Goudal
+** Login   <goudal_n@epitech.net>
+**
+** Started on  Thu Oct 29 23:28:04 2015 Nicolas Goudal
+** Last update Thu Oct 29 23:28:09 2015 Nicolas Goudal
 */
 
-void	char_shift(char *c, int length)
+void		char_shift(char *str, int length)
 {
-  int	i;
+  int		i;
 
   i = 0;
   while (i < length - 1)
-    {
-      c[i] = c[i + 1];
-      i = i + 1;
-    }
-  c[length - 1] = 0;
+  {
+    str[i] = str[i + 1];
+    ++i;
+  }
+  str[length - 1] = 0;
 }

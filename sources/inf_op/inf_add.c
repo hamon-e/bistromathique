@@ -4,11 +4,12 @@
 ** Made by Nicolas Goudal
 ** Login   <goudal_n@epitech.net>
 **
-** Started on  Thu Oct 29 22:18:23 2015 Nicolas Goudal
-** Last update Thu Oct 29 22:34:05 2015 Nicolas Goudal
+** Started on  Thu Oct 29 22:49:59 2015 Nicolas Goudal
+** Last update Thu Oct 29 23:44:27 2015 Nicolas Goudal
 */
 
 #include <stdlib.h>
+#include "the_lib.h"
 #include "inf_op.h"
 
 static t_op_nbr	*init_addresult(t_op_nbr *res, t_op_nbr *nbr1, t_op_nbr *nbr2)
@@ -60,22 +61,22 @@ static void	add_op(t_op_nbr *res, t_op_nbr *nbr2)
   i_to_a(res->nbr, res->length);
 }
 
-void		*inf_add(t_op_ctr *op)
+void		inf_add(t_op_data *ctrl)
 {
   t_op_nbr	*tmp;
 
-  if (checkswap(op->nbr1, op->nbr2))
+  if (checkswap(ctrl->nbr1, ctrl->nbr2))
   {
-    tmp = op->nbr1;
-    op->nbr1 = op->nbr2;
-    op->nbr2 = tmp;
+    tmp = ctrl->nbr1;
+    ctrl->nbr1 = ctrl->nbr2;
+    ctrl->nbr2 = tmp;
   }
-  op->result = init_addresult(op->result, op->nbr1, op->nbr2);
-  if (op->nbr1->sign == MINUS && op->nbr2->sign == PLUS)
-    sub_op(op->result, op->nbr2);
+  ctrl->result = init_addresult(ctrl->result, ctrl->nbr1, ctrl->nbr2);
+  if (ctrl->nbr1->sign == MINUS && ctrl->nbr2->sign == PLUS)
+    sub_op(ctrl->result, ctrl->nbr2);
   else
-    if (op->nbr1->sign == PLUS && op->nbr2->sign == MINUS)
-      sub_op(op->result, op->nbr2);
+    if (ctrl->nbr1->sign == PLUS && ctrl->nbr2->sign == MINUS)
+      sub_op(ctrl->result, ctrl->nbr2);
     else
-      add_op(op->result, op->nbr2);
+      add_op(ctrl->result, ctrl->nbr2);
 }

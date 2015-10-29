@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 18:23:31 2015 Nicolas Goudal
-** Last update Thu Oct 29 22:12:54 2015 Nicolas Goudal
+** Last update Thu Oct 29 23:40:55 2015 Nicolas Goudal
 */
 
 #ifndef PARSER_H_
@@ -14,6 +14,9 @@
 # include <stdbool.h>
 
 # ifndef INF_OP_H_
+
+#  define SYNTAXE_ERROR_MSG	"syntax error"
+#  define ERROR_MSG		"Error"
 
 typedef enum	e_op_enum
 {
@@ -27,6 +30,12 @@ typedef enum	e_op_enum
   OP_ERROR_IDX
 }		t_op_enum;
 
+typedef enum	e_sign
+{
+  PLUS = 1,
+  MINUS = -1
+}		t_sign;
+
 # endif /* !INF_OP_H_ */
 
 
@@ -35,12 +44,6 @@ typedef enum	e_type
   OPP,
   NUM
 }		t_type;
-
-typedef enum	e_sign
-{
-  PLUS = 1,
-  MINUS = -1
-}		t_sign;
 
 typedef struct	s_nbr
 {

@@ -4,8 +4,8 @@
 ** Made by Nicolas Goudal
 ** Login   <goudal_n@epitech.net>
 **
-** Started on  Thu Oct 29 22:11:28 2015 Nicolas Goudal
-** Last update Thu Oct 29 22:29:53 2015 Nicolas Goudal
+** Started on  Thu Oct 29 22:50:09 2015 Nicolas Goudal
+** Last update Thu Oct 29 23:47:09 2015 Nicolas Goudal
 */
 
 #include "inf_op.h"
@@ -50,7 +50,7 @@ char		*sub_op(t_op_nbr *res, t_op_nbr *nbr2)
   return (res->nbr);
 }
 
-void		inf_sub(t_op_ctrl *ctrl)
+void		inf_sub(t_op_data *ctrl)
 {
   ctrl->nbr2->sign = -ctrl->nbr2->sign;
   inf_add(ctrl);
