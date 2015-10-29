@@ -5,7 +5,7 @@
 ## Login   <goudal_n@epitech.net>
 ## 
 ## Started on  Thu Oct 29 02:02:32 2015 Nicolas Goudal
-## Last update Thu Oct 29 03:10:46 2015 Nicolas Goudal
+## Last update Thu Oct 29 05:25:51 2015 Nicolas Goudal
 ##
 
 NAME		=	the_bistromatik
@@ -78,16 +78,16 @@ debug		:
 			$(CC) -o $@ -c $< $(CFLAGS) $(DBFLAGS)
 			@printf "\033[33m[OBJECT COMPILED]\n\033[37m"
 
-$(NAME)		:	$(OBJS)
-			$(CC) -o $@ $^ $(LIB_PATH) $(LDFLAGS)
+$(NAME)		:	$(OBJS) $(LIB_PATH)
+			$(CC) -o $@ $^ $(LDFLAGS)
 			@printf "\033[32m[BINARY LINKED]\n\033[37m"
 
-$(BNS_NAME)	:	$(OBJS)
-			$(CC) -o $@ $^ $(LIB_PATH) $(LDFLAGS)
+$(BNS_NAME)	:	$(OBJS) $(LIB_PATH)
+			$(CC) -o $@ $^ $(LDFLAGS)
 			@printf "\033[32m[BINARY LINKED]\n\033[37m"
 
-$(DB_NAME)	:	$(DB_OBJS)
-			$(CC) -o $@ $^ $(LIB_PATH) $(LDFLAGS)
+$(DB_NAME)	:	$(DB_OBJS) $(LIB_PATH)
+			$(CC) -o $@ $^ $(LDFLAGS)
 			@printf "\033[32m[BINARY LINKED]\n\033[37m"
 
 clean		:

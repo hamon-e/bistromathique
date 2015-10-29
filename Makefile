@@ -5,14 +5,14 @@
 ## Login   <goudal_n@epitech.net>
 ## 
 ## Started on  Thu Oct 29 02:01:41 2015 Nicolas Goudal
-## Last update Thu Oct 29 03:08:52 2015 Nicolas Goudal
+## Last update Thu Oct 29 05:26:05 2015 Nicolas Goudal
 ##
 
 NAME		=	calc
 
-SRCS_NAMES	+=	.c
+SRCS_NAMES	+=	tmp.c
 
-HDRS_NAMES	+=	.h
+HDRS_NAMES	+=	tmp.h
 
 SRCS		=	$(addprefix $(SRC_DIR), $(SRCS_NAMES))
 
@@ -48,6 +48,8 @@ CFLAGS		+=	-W -Wall -Wextra
 CFLAGS		+=	-pedantic
 CFLAGS		+=	-I $(INC_DIR) -I $(LIB_INC_DIR)
 
+LDFLAGS		+=	
+
 DBFLAGS		=	-g -g3 -ggdb
 
 
@@ -77,12 +79,12 @@ debug		:	lib
 			$(CC) -o $@ -c $< $(CFLAGS) $(DBFLAGS)
 			@printf "\033[33m[OBJECT COMPILED]\n\033[37m"
 
-$(NAME)		:	$(OBJS)
-			$(CC) -o $@ $^ $(LIB_PATH) $(LDFLAGS)
+$(NAME)		:	$(OBJS) $(LIB_PATH)
+			$(CC) -o $@ $^ $(LDFLAGS)
 			@printf "\033[32m[BINARY LINKED]\n\033[37m"
 
-$(DB_NAME)	:	$(DB_OBJS)
-			$(CC) -o $@ $^ $(LIB_PATH) $(LDFLAGS)
+$(DB_NAME)	:	$(DB_OBJS) $(LIB_PATH)
+			$(CC) -o $@ $^ $(LDFLAGS)
 			@printf "\033[32m[DEBUG BINARY LINKED]\n\033[37m"
 
 clean		:
