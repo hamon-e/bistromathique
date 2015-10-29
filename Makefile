@@ -5,7 +5,7 @@
 ## Login   <goudal_n@epitech.net>
 ## 
 ## Started on  Thu Oct 29 02:01:41 2015 Nicolas Goudal
-## Last update Thu Oct 29 05:26:05 2015 Nicolas Goudal
+## Last update Thu Oct 29 06:34:16 2015 Nicolas Goudal
 ##
 
 NAME		=	calc
@@ -98,6 +98,7 @@ fclean		:
 			@$(MAKE) -C $(LIB_DIR) $@
 			@printf "\033[34m-------------------------------PROJECT DELETION------------------------------\n\033[37m"
 			$(RM) $(OBJS)
+			@$(RM) $(DB_OBJS)
 			@printf "\033[31m[OBJECTS DELETED]\n\033[37m"
 			$(RM) $(NAME)
 			@$(RM) $(BNS_NAME)
