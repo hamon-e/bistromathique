@@ -1,11 +1,11 @@
 /*
 ** peg.h for sources in /home/hamon_e/Piscine/Piscine_C_bistromathique/sources
-** 
+**
 ** Made by Benoit Hamon
 ** Login   <hamon_e@epitech.net>
-** 
+**
 ** Started on  Thu Oct 29 15:01:15 2015 Benoit Hamon
-** Last update Thu Oct 29 15:01:15 2015 Benoit Hamon
+** Last update Thu Oct 29 17:42:10 2015 Nicolas Goudal
 */
 
 typedef enum	e_type
@@ -50,6 +50,6 @@ typedef struct	s_data
 
 t_tree *pth(t_data *ctrl, int *index);
 int	check_av(int ac, char const *av[]);
-t_data		*init(const char *av[]);
+t_data		*init(char const *av[]);
 int	calc(t_tree *racine);
 t_tree *ope_low(t_data *ctrl, unsigned int *index);

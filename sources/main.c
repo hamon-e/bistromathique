@@ -1,17 +1,17 @@
 /*
-** main.c for sources in /home/hamon_e/Piscine/Piscine_C_bistromathique/sources
-** 
-** Made by Benoit Hamon
-** Login   <hamon_e@epitech.net>
-** 
-** Started on  Thu Oct 29 16:17:00 2015 Benoit Hamon
-** Last update Thu Oct 29 16:17:00 2015 Benoit Hamon
+** main.c for bistromathique in /home/morty/rendu/Piscine_C_bistromathique/sources
+**
+** Made by Nicolas Goudal
+** Login   <goudal_n@epitech.net>
+**
+** Started on  Thu Oct 29 18:02:28 2015 Nicolas Goudal
+** Last update Thu Oct 29 18:03:04 2015 Nicolas Goudal
 */
 
 #include "the_lib.h"
 #include "peg.h"
 
-int	main(int ac, char const *av[])
+int		main(int ac, char const *av[])
 {
   t_data	*ctrl;
   unsigned int	index;
@@ -21,8 +21,8 @@ int	main(int ac, char const *av[])
     the_exit(1, "erreur");
   ctrl = init(av);
   printf("%s\n", ctrl->op_base);
-  printf("%s\n", ctrl->nbr_base); 
-  printf("%s\n", ctrl->str); 
+  printf("%s\n", ctrl->nbr_base);
+  printf("%s\n", ctrl->str);
   printf("%d\n", calc(ope_low(ctrl, &index)));
   return (0);
 }

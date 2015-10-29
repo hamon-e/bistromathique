@@ -5,7 +5,7 @@
 ## Login   <goudal_n@epitech.net>
 ## 
 ## Started on  Thu Oct 29 01:58:41 2015 Nicolas Goudal
-## Last update Thu Oct 29 03:05:44 2015 Nicolas Goudal
+## Last update Thu Oct 29 06:39:59 2015 Nicolas Goudal
 ##
 
 NAME		=	the_lib.a
@@ -50,7 +50,7 @@ CFLAGS		+=	-I $(INC_DIR)
 
 all		:	lib
 
-lib		:	$(LIB_DIR)
+lib		:
 			@printf "\033[35m-----------------------------LIBRARY COMPILATION-----------------------------\n\033[37m"
 			@$(MAKE) $(NAME)
 

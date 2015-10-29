@@ -5,17 +5,17 @@
 ## Login   <goudal_n@epitech.net>
 ## 
 ## Started on  Thu Oct 29 02:01:41 2015 Nicolas Goudal
-## Last update Thu Oct 29 06:34:16 2015 Nicolas Goudal
+## Last update Thu Oct 29 18:03:53 2015 Nicolas Goudal
 ##
 
 NAME		=	calc
 
-SRCS_NAMES	+=	main.c	\
-			check_av.c \
-			init.c \
-			tmp.c
+SRCS_NAMES	+=	check_av.c
+SRCS_NAMES	+=	init.c
+SRCS_NAMES	+=	main.c
+SRCS_NAMES	+=	tmp.c
 
-HDRS_NAMES	+=	tmp.h
+HDRS_NAMES	+=	peg.h
 
 SRCS		=	$(addprefix $(SRC_DIR), $(SRCS_NAMES))
 
