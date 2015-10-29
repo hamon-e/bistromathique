@@ -5,13 +5,29 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 18:23:31 2015 Nicolas Goudal
-** Last update Thu Oct 29 20:59:56 2015 Nicolas Goudal
+** Last update Thu Oct 29 22:12:54 2015 Nicolas Goudal
 */
 
 #ifndef PARSER_H_
 # define PARSER_H_
 
 # include <stdbool.h>
+
+# ifndef INF_OP_H_
+
+typedef enum	e_op_enum
+{
+  OP_OPEN_PARENT_IDX,
+  OP_CLOSE_PARENT_IDX,
+  OP_ADD_IDX,
+  OP_SUB_IDX,
+  OP_MULT_IDX,
+  OP_DIV_IDX,
+  OP_MOD_IDX,
+  OP_ERROR_IDX
+}		t_op_enum;
+
+# endif /* !INF_OP_H_ */
 
 
 typedef enum	e_type
@@ -62,8 +78,10 @@ bool		is_lowopp(t_data *ctrl, unsigned int index);
 bool		is_digit(t_data *ctrl, unsigned int index);
 bool		is_num(t_data *ctrl, unsigned int *index);
 void		the_space_consumer(t_data *ctrl, unsigned int *index);
-t_tree		*create_node(t_type type, void *str,
-			     t_tree *left, t_tree *right);
+t_tree		*create_node(t_type type,
+			     void *str,
+			     t_tree *left,
+			     t_tree *right);
 
 int		check_argv(int argc, char const *argv[]);
 void		init(t_data *ctrl, char const *argv[]);

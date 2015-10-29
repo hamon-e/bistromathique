@@ -5,12 +5,11 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 19:30:36 2015 Nicolas Goudal
-** Last update Thu Oct 29 21:35:23 2015 Nicolas Goudal
+** Last update Thu Oct 29 21:53:40 2015 Nicolas Goudal
 */
 
 #include <stdbool.h>
 #include "parser.h"
-#include "do_inf_op.h"
 
 bool	is_upopp(t_data *ctrl, unsigned int index)
 {

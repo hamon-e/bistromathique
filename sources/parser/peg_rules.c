@@ -5,14 +5,13 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 19:38:59 2015 Nicolas Goudal
-** Last update Thu Oct 29 21:35:39 2015 Nicolas Goudal
+** Last update Thu Oct 29 21:53:45 2015 Nicolas Goudal
 */
 
 #include <stdlib.h>
 #include <stdbool.h>
 #include "the_lib.h"
 #include "parser.h"
-#include "do_inf_op.h"
 
 t_tree		*pth(t_data *ctrl,
 		     unsigned int *index,
