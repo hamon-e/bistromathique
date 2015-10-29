@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 18:02:28 2015 Nicolas Goudal
-** Last update Thu Oct 29 20:31:10 2015 Nicolas Goudal
+** Last update Thu Oct 29 21:38:01 2015 Nicolas Goudal
 */
 
 #include "the_lib.h"
@@ -24,6 +24,6 @@ int		main(int argc, char const *argv[])
   root = ope_low(&ctrl, &index);
   if (the_strlen(ctrl.str) != index)
     the_exit(1, "error");
-  the_putnbr(1, calc(root));
+  do_inf_op(&ctrl, root);
   return (0);
 }

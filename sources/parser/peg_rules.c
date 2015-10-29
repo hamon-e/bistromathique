@@ -5,13 +5,14 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 19:38:59 2015 Nicolas Goudal
-** Last update Thu Oct 29 20:21:25 2015 Nicolas Goudal
+** Last update Thu Oct 29 21:35:39 2015 Nicolas Goudal
 */
 
 #include <stdlib.h>
 #include <stdbool.h>
 #include "the_lib.h"
 #include "parser.h"
+#include "do_inf_op.h"
 
 t_tree		*pth(t_data *ctrl,
 		     unsigned int *index,
@@ -20,12 +21,12 @@ t_tree		*pth(t_data *ctrl,
 {
   t_tree	*tmp;
 
-  if (ctrl->str[index_save] == ctrl->op_base[0])
+  if (ctrl->str[index_save] == ctrl->op_base[OP_OPEN_PARENT_IDX])
   {
     ++index_save;
     if (!(tmp = ope_low(ctrl, &index_save)))
       return (NULL);
-    if (ctrl->str[index_save++] == ctrl->op_base[1])
+    if (ctrl->str[index_save++] == ctrl->op_base[OP_CLOSE_PARENT_IDX])
     {
       if (tmp->sign == PLUS)
 	tmp->sign = sign;

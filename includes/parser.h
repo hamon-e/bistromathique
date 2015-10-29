@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 18:23:31 2015 Nicolas Goudal
-** Last update Thu Oct 29 20:15:39 2015 Nicolas Goudal
+** Last update Thu Oct 29 20:59:56 2015 Nicolas Goudal
 */
 
 #ifndef PARSER_H_
@@ -30,7 +30,6 @@ typedef struct	s_nbr
 {
   char const	*nbr;
   int		lenght;
-  t_sign	sign;
 }		t_nbr;
 
 typedef struct	s_op
@@ -55,7 +54,7 @@ typedef struct	s_data
 }		t_data;
 
 
-int		calc(t_tree *racine);
+int		do_inf_op(t_data *ctrl, t_tree *racine);
 
 t_tree		*ope_low(t_data *ctrl, unsigned int *index);
 bool		is_upopp(t_data *ctrl, unsigned int index);
