@@ -46,6 +46,22 @@ static int	check_size(char const *size)
   return (1);
 }
 
+static int	check_cmp_base_opp(char const *base, char const *opp)
+{
+  int	i;
+  int	j;
+
+  i = -1;
+  while (base[++i])
+  {
+    j = -1;
+    while (opp[++j])
+      if (base[i] == opp[j])
+	return (0);
+  }
+  return (1);
+}
+
 int		check_argv(int argc, char const *argv[])
 {
   if (argc != 4)
@@ -53,6 +69,8 @@ int		check_argv(int argc, char const *argv[])
   if (!check_base(argv[1]))
     return (0);
   if (!check_opp(argv[2]))
+    return (0);
+  if (!check_cmp_base_opp(argv[1], argv[2]))
     return (0);
   if (!check_size(argv[3]))
     return (0);

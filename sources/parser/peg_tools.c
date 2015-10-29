@@ -26,6 +26,7 @@ t_tree		*create_node(t_type type, void *str,
 
 void	the_space_consumer(t_data *ctrl, unsigned int *index)
 {
-  while (ctrl->str[*index] == ' ')
+  while (ctrl->str[*index] == ' ' || ctrl->str[*index] == '\t' ||
+         ctrl->str[*index] == '\n')
     ++*index;
 }
