@@ -1,11 +1,11 @@
 /*
-** the_putstr.c for Bistromathique in /home/morty/rendu/Piscine_C_bistromathique/lib/sources
+** the_putstr.c for bistromathique in /home/morty/rendu/Piscine_C_bistromathique/lib/sources
 **
 ** Made by Nicolas Goudal
 ** Login   <goudal_n@epitech.net>
 **
-** Started on  Thu Oct 29 02:41:05 2015 Nicolas Goudal
-** Last update Thu Oct 29 02:41:15 2015 Nicolas Goudal
+** Started on  Thu Oct 29 20:35:20 2015 Nicolas Goudal
+** Last update Thu Oct 29 20:36:00 2015 Nicolas Goudal
 */
 
 #include "the_lib.h"

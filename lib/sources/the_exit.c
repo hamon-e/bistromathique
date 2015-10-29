@@ -1,11 +1,11 @@
 /*
-** the_exit.c for Bistromathique in /home/morty/rendu/Piscine_C_bistromathique/lib/sources
+** the_exit.c for bistromathique in /home/morty/rendu/Piscine_C_bistromathique/lib/sources
 **
 ** Made by Nicolas Goudal
 ** Login   <goudal_n@epitech.net>
 **
-** Started on  Thu Oct 29 02:37:18 2015 Nicolas Goudal
-** Last update Thu Oct 29 02:38:47 2015 Nicolas Goudal
+** Started on  Thu Oct 29 20:35:36 2015 Nicolas Goudal
+** Last update Thu Oct 29 20:35:46 2015 Nicolas Goudal
 */
 
 #include <stdlib.h>

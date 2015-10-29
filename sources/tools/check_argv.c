@@ -1,19 +1,19 @@
 /*
-** check_av.c for Piscine_C_bistromathique in /home/hamon_e/Piscine/Piscine_C_bistromathique
-** 
-** Made by Benoit Hamon
-** Login   <hamon_e@epitech.net>
-** 
-** Started on  mer. oct. 28 16:57:11 2015 Benoit Hamon
-** Last update mer. oct. 28 16:57:11 2015 Benoit Hamon
+** check_argv.c for bistromathique in /home/morty/rendu/Piscine_C_bistromathique/sources/tools
+**
+** Made by Nicolas Goudal
+** Login   <goudal_n@epitech.net>
+**
+** Started on  Thu Oct 29 19:46:16 2015 Nicolas Goudal
+** Last update Thu Oct 29 19:51:52 2015 Nicolas Goudal
 */
 
 #include "the_lib.h"
 
 static int	check_base(char const *base)
 {
-  int	i;
-  int	j;
+  int		i;
+  int		j;
 
   if (the_strlen(base) < 1)
     return (0);
@@ -46,15 +46,15 @@ static int	check_size(char const *size)
   return (1);
 }
 
-int	check_av(int ac, char const *av[])
+int		check_argv(int argc, char const *argv[])
 {
-  if (ac != 4)
+  if (argc != 4)
     return (0);
-  if (!check_base(av[1]))
+  if (!check_base(argv[1]))
     return (0);
-  if (!check_opp(av[2]))
+  if (!check_opp(argv[2]))
     return (0);
-  if (!check_size(av[3]))
+  if (!check_size(argv[3]))
     return (0);
   return (1);
 }

@@ -1,11 +1,11 @@
 /*
-** the_lib.h for Bistromathique in /home/morty/rendu/Piscine_C_bistromathique/lib/includes
+** the_lib.h for bistromathique in /home/morty/rendu/Piscine_C_bistromathique/lib/includes
 **
 ** Made by Nicolas Goudal
 ** Login   <goudal_n@epitech.net>
 **
-** Started on  Thu Oct 29 02:05:48 2015 Nicolas Goudal
-** Last update Thu Oct 29 18:06:55 2015 Nicolas Goudal
+** Started on  Thu Oct 29 20:36:12 2015 Nicolas Goudal
+** Last update Thu Oct 29 20:36:28 2015 Nicolas Goudal
 */
 
 #ifndef THE_LIB_H_
@@ -27,7 +27,8 @@ void			the_putchar(int const fd, char const c);
 void			the_putstr(int const fd, char const *str);
 void			the_putnbr(int const fd, int nbr);
 
-int			the_strlen(char const *str);
+unsigned int		the_strlen(char const *str);
 int			the_strcmp(char const *s1, char const *s2);
+int			the_atoi(char const *str);
 
 #endif /* !THE_LIB_H_ */

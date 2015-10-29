@@ -5,17 +5,20 @@
 ## Login   <goudal_n@epitech.net>
 ## 
 ## Started on  Thu Oct 29 02:01:41 2015 Nicolas Goudal
-## Last update Thu Oct 29 18:03:53 2015 Nicolas Goudal
+## Last update Thu Oct 29 20:14:04 2015 Nicolas Goudal
 ##
 
 NAME		=	calc
 
-SRCS_NAMES	+=	check_av.c
-SRCS_NAMES	+=	init.c
 SRCS_NAMES	+=	main.c
-SRCS_NAMES	+=	tmp.c
+SRCS_NAMES	+=	inf_op/do_inf_op.c
+SRCS_NAMES	+=	parser/parser_checkers.c
+SRCS_NAMES	+=	parser/peg_rules.c
+SRCS_NAMES	+=	parser/peg_tools.c
+SRCS_NAMES	+=	tools/check_argv.c
+SRCS_NAMES	+=	tools/init.c
 
-HDRS_NAMES	+=	peg.h
+HDRS_NAMES	+=	parser.h
 
 SRCS		=	$(addprefix $(SRC_DIR), $(SRCS_NAMES))
 

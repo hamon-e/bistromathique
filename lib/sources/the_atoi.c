@@ -1,11 +1,11 @@
 /*
-** the_atoi.c for Bistromathique in /home/morty/rendu/Piscine_C_bistromathique/lib/sources
+** the_atoi.c for bistromathique in /home/morty/rendu/Piscine_C_bistromathique/lib/sources
 **
 ** Made by Nicolas Goudal
 ** Login   <goudal_n@epitech.net>
 **
-** Started on  Thu Oct 29 02:27:57 2015 Nicolas Goudal
-** Last update Thu Oct 29 02:28:44 2015 Nicolas Goudal
+** Started on  Thu Oct 29 20:35:33 2015 Nicolas Goudal
+** Last update Thu Oct 29 20:35:43 2015 Nicolas Goudal
 */
 
 #include <limits.h>

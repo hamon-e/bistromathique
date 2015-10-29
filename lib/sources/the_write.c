@@ -1,11 +1,11 @@
 /*
-** the_write.c for Bistromathique in /home/morty/rendu/Piscine_C_bistromathique/lib/sources
+** the_write.c for bistromathique in /home/morty/rendu/Piscine_C_bistromathique/lib/sources
 **
 ** Made by Nicolas Goudal
 ** Login   <goudal_n@epitech.net>
 **
-** Started on  Thu Oct 29 02:47:41 2015 Nicolas Goudal
-** Last update Thu Oct 29 03:06:10 2015 Nicolas Goudal
+** Started on  Thu Oct 29 20:35:31 2015 Nicolas Goudal
+** Last update Thu Oct 29 20:36:06 2015 Nicolas Goudal
 */
 
 #include <unistd.h>
