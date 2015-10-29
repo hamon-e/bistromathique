@@ -21,8 +21,8 @@ int	main(int ac, char const *av[])
     the_exit(1, "erreur");
   ctrl = init(av);
   printf("%s\n", ctrl->op_base);
-  printf("%s\n", ctrl->nbr_base);
-  printf("%s\n", ctrl->str);
+  printf("%s\n", ctrl->nbr_base); 
+  printf("%s\n", ctrl->str); 
   printf("%d\n", calc(ope_low(ctrl, &index)));
   return (0);
 }

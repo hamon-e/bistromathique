@@ -17,10 +17,11 @@ static char	*init_read(size_t size_read)
   char		*res;
   ssize_t	rd;
 
-  res = the_malloc(sizeof(char) * size_read);
+  res = the_malloc(sizeof(char) * (size_read + 1));
   rd = the_read(0, res, size_read);
   if (rd != size_read)
     the_exit(1, "erreur");
+  res[rd] = '\0';
   return (res);
 }
 
@@ -31,6 +32,6 @@ t_data		*init(const char *av[])
   ctrl = the_malloc(sizeof(t_data));
   ctrl->nbr_base = av[1];
   ctrl->op_base= av[2];
-  ctrl->str = init_read(atoi(av[3]));
+  ctrl->str = init_read(the_atoi(av[3]));
   return (ctrl);
 }
