@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 18:23:31 2015 Nicolas Goudal
-** Last update Thu Oct 29 23:40:55 2015 Nicolas Goudal
+** Last update Fri Oct 30 02:15:02 2015 Nicolas Goudal
 */
 
 #ifndef PARSER_H_
@@ -48,7 +48,6 @@ typedef enum	e_type
 typedef struct	s_nbr
 {
   char const	*nbr;
-  int		lenght;
 }		t_nbr;
 
 typedef struct	s_op

@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 21:45:55 2015 Nicolas Goudal
-** Last update Fri Oct 30 01:35:48 2015 Nicolas Goudal
+** Last update Fri Oct 30 02:41:28 2015 Nicolas Goudal
 */
 
 #include <stdlib.h>
@@ -22,29 +22,44 @@ static t_op_and_fun const	g_dico[5] =
   {OP_MOD_IDX, inf_mod},
 };
 
-t_op_nbr		*rec_op(t_data *ctrl, t_tree *root, t_op_nbr )
+/*
+** prend root->data->nbr et utilise ctrl->nbr_base pour retourner l'adress d'un
+** t_op_nbr malloc avec nbr en base 10 non signe et bien formate
+** (pas de 0 au debut), sign contenant l'enum du sign et length contenant la
+** longueur de nbr.
+*/
+t_op_nbr		*get_op_nbr(t_data *ctrl, t_tree *root)
+{
+  return (NULL);
+}
+
+/*
+** epure result->nbr (enleve le sign et les 0 au debut)
+** remplis results->sign
+** remplis results->length
+*/
+t_op_nbr		*format_result(t_op_nbr *result, t_tree *root);
+{
+  return (NULL);
+}
+
+t_op_nbr		*do_inf_op(t_data *ctrl, t_tree *root)
 {
   int			i;
   t_op_data		calc;
 
   i = 0;
-  if (root->type == OP)
+  if (!root)
+    the_exit(-3, ERROR_MSG);
+  if (root->type == OPP)
   {
-    while (root->data->c != ctrl->op_base[g.dico[i].op])
-      ++i;
-
+    calc.nbr1 = do_inf_op(ctrl, root->left);
+    calc.nbr2 = do_inf_op(ctrl, root->right);
   }
   else
-  {
-     fill_calc(ctrl, &calc, );
-  }
-}
-
-t_nbr			do_inf_op(t_data *ctrl, t_tree *root)
-{
-
-  if (!racine)
-    the_exit(-3, ERROR_MSG);
-  if (racine->)
-    return (42);
+    return (get_op_nbr(ctrl, root));
+  while (root->data->c != ctrl->op_base[g.dico[i].op])
+    ++i;
+  g_dico[i].inf_op(&calc);
+  return (format_result(calc.result, root->sign));
 }
