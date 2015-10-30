@@ -39,6 +39,8 @@ static int	check_opp(char const *opp)
 
 static int	check_size(char const *size)
 {
+  if (*size == '-')
+    return (0);
   if (the_strlen(size) <= 9)
     return (1);
   if (the_strcmp(size, "2147483647") > 0)
