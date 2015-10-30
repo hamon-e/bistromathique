@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Fri Oct 30 03:56:05 2015 Nicolas Goudal
-** Last update Fri Oct 30 04:23:20 2015 Nicolas Goudal
+** Last update Fri Oct 30 06:22:47 2015 Nicolas Goudal
 */
 
 #include "the_lib.h"
@@ -28,7 +28,8 @@ static t_op_nbr		*format_result(t_op_nbr *result, t_sign sign)
 
   i = 0;
   result->sign = (result->nbr[0] == '-' ? MINUS : PLUS) * sign;
-  while (result->nbr[i] == '0' || result->nbr[i] == '-')
+  while ((result->nbr[i] == '0' || result->nbr[i] == '-')
+	 && result->nbr[i] && result->nbr[i + 1])
     ++i;
   tmp = the_malloc(sizeof(char)
 		   * ((result->length = the_strlen(result->nbr + i)) + 1));

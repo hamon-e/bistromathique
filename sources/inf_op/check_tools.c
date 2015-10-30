@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 23:30:09 2015 Nicolas Goudal
-** Last update Thu Oct 29 23:49:55 2015 Nicolas Goudal
+** Last update Fri Oct 30 05:38:25 2015 Nicolas Goudal
 */
 
 #include "the_lib.h"
@@ -18,7 +18,7 @@ int		checkswap(t_op_nbr *nbr1, t_op_nbr *nbr2)
     if (nbr1->length > nbr2->length)
       return (0);
     if (nbr1->length == nbr2->length)
-      if (the_strcmp(nbr1->nbr, nbr2->nbr) <= 0)
+      if (the_strcmp(nbr1->nbr, nbr2->nbr) >= 0)
 	return (0);
     return (1);
   }
@@ -27,7 +27,7 @@ int		checkswap(t_op_nbr *nbr1, t_op_nbr *nbr2)
     if (nbr1->length > nbr2->length)
       return (0);
     if (nbr1->length == nbr2->length)
-      if (the_strcmp(nbr1->nbr, nbr2->nbr) <= 0)
+      if (the_strcmp(nbr1->nbr, nbr2->nbr) >= 0)
 	return (0);
     return (1);
   }

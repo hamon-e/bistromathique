@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 23:19:53 2015 Nicolas Goudal
-** Last update Fri Oct 30 01:02:52 2015 Nicolas Goudal
+** Last update Fri Oct 30 06:17:06 2015 Nicolas Goudal
 */
 
 #include "the_lib.h"
@@ -50,7 +50,7 @@ static t_op_nbr	*init_divresult(t_op_nbr *res, t_op_nbr *nbr1, t_op_nbr *nbr2)
     res->nbr[i] = '\0';
     ++i;
   }
-  if (nbr1->sign * nbr2->sign == -1)
+  if (nbr1->sign * nbr2->sign == MINUS)
     res->nbr[0] = '-' - '0';
   return (res);
 }
@@ -71,15 +71,15 @@ int		div_op(t_op_nbr *div, t_op_nbr *tmp)
       break ;
     ++i;
   }
-  return (i - 1);
+  return (i);
 }
 
 void		inf_div(t_op_data *ctrl)
 {
+  if (!*ctrl->nbr2->nbr || !the_strcmp(ctrl->nbr2->nbr, "0"))
+    the_exit(-3, ERROR_MSG);
   a_to_i(ctrl->nbr1->nbr, ctrl->nbr1->length);
   a_to_i(ctrl->nbr2->nbr, ctrl->nbr2->length);
-  if (!the_strcmp(ctrl->nbr2->nbr, "0"))
-    the_exit(-3, ERROR_MSG);
   ctrl->result = init_divresult(ctrl->result, ctrl->nbr1, ctrl->nbr2);
   div_process(ctrl->result, ctrl->nbr1, ctrl->nbr2, ctrl->tmp);
 }

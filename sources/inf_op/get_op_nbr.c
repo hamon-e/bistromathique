@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Fri Oct 30 03:54:41 2015 Nicolas Goudal
-** Last update Fri Oct 30 05:20:31 2015 Nicolas Goudal
+** Last update Fri Oct 30 06:23:30 2015 Nicolas Goudal
 */
 
 #include "the_lib.h"
@@ -69,7 +69,7 @@ static char	*op(char *nbr1, char *nbr2, void (*f)(t_op_data *))
   test.nbr2->length = the_strlen(nbr2);
   test.nbr2->sign = PLUS;
   f(&test);
-  while (*test.result->nbr == '0')
+  while (*test.result->nbr == '0' && *test.result->nbr && test.result->nbr[1])
     ++test.result->nbr;
   free(test.nbr1);
   free(test.nbr2);
@@ -81,7 +81,6 @@ t_op_nbr	*get_op_nbr(t_data *ctrl, t_tree *node)
   t_op_nbr	*nbr;
   char		*str;
   char		*res;
-  char		*tmp;
   int		i;
   int		n;
 
@@ -93,9 +92,7 @@ t_op_nbr	*get_op_nbr(t_data *ctrl, t_tree *node)
   while (compare(str[i], ctrl->nbr_base) != -1)
   {
     res = op(res, itoa(n), inf_mult);
-    printf("res = %p\n", res);
     res = op(res, itoa(compare(str[i], ctrl->nbr_base)), inf_add);
-    printf("res = %p\n", res);
     ++i;
   }
   nbr = the_malloc(sizeof(t_op_nbr));

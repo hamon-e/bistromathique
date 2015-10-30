@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 23:19:50 2015 Nicolas Goudal
-** Last update Fri Oct 30 03:16:14 2015 Nicolas Goudal
+** Last update Fri Oct 30 06:17:45 2015 Nicolas Goudal
 */
 
 #include "the_lib.h"
@@ -34,6 +34,8 @@ static void	mod_proc(t_op_nbr *res, t_op_nbr *nbr1, t_op_nbr *nbr2)
 
 void		inf_mod(t_op_data *ctrl)
 {
+  if (!*ctrl->nbr2->nbr || !the_strcmp(ctrl->nbr2->nbr, "0"))
+    the_exit(-3, ERROR_MSG);
   ctrl->result = the_malloc(sizeof(t_op_nbr));
   a_to_i(ctrl->nbr1->nbr, ctrl->nbr1->length);
   a_to_i(ctrl->nbr2->nbr, ctrl->nbr2->length);
