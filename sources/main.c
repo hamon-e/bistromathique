@@ -17,10 +17,6 @@
 ** une chaine malloc final bien formate, avec le signe,
 ** dans la base demande et sans \n
 */
-char		*get_final_result(t_op_nbr *result, t_data *ctrl)
-{
-  return (result->nbr);
-}
 
 int		main(int argc, char const *argv[])
 {
@@ -38,9 +34,9 @@ int		main(int argc, char const *argv[])
   if (the_strlen(ctrl.str) != index)
     the_exit(1, ERROR_MSG);
   result = do_inf_op(&ctrl, root);
-  final_result = get_final_result(result, &ctrl);
+  final_result = get_final_result(result, &ctrl, 0);
   if (result->sign == MINUS)
     the_putchar(1, '-');
-  the_putstr(1, final_result);
+//  the_putstr(1, final_result);
   return (0);
 }

@@ -81,6 +81,7 @@ typedef struct	s_data
 
 t_op_nbr	*do_inf_op(t_data *ctrl, t_tree *root);
 t_op_nbr	*get_op_nbr(t_data *ctrl, t_tree *node);
+char		*get_final_result(t_op_nbr *result, t_data *ctrl, int rec);
 
 t_tree		*ope_low(t_data *ctrl, unsigned int *index);
 bool		is_upopp(t_data *ctrl, unsigned int index);
