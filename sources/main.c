@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 18:02:28 2015 Nicolas Goudal
-** Last update Fri Oct 30 02:47:27 2015 Nicolas Goudal
+** Last update Fri Oct 30 03:10:42 2015 Nicolas Goudal
 */
 
 #include "the_lib.h"
@@ -17,7 +17,7 @@
 ** une chaine malloc final bien formate, avec le signe,
 ** dans la base demande et sans \n
 */
-char		*get_final_result(t_op_nbr *result)
+char		*get_final_result(t_op_nbr *result, t_data *ctrl)
 {
   return (NULL);
 }

@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 22:49:53 2015 Nicolas Goudal
-** Last update Fri Oct 30 01:03:22 2015 Nicolas Goudal
+** Last update Fri Oct 30 03:02:51 2015 Nicolas Goudal
 */
 
 #include <stdlib.h>
@@ -81,7 +81,7 @@ static t_op_nbr		*init_mulresult(t_op_nbr *res,
 					t_op_nbr *nbr2)
 {
   res = the_malloc(sizeof(t_op_nbr));
-  res->length += nbr2->length + 1;
+  res->length = nbr1->length + nbr2->length + 1;
   if (nbr1->sign * nbr2->sign == -1)
     ++res->length;
   if (!(res->nbr = the_malloc(res->length + 1)))

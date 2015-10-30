@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 22:12:08 2015 Nicolas Goudal
-** Last update Thu Oct 29 23:40:40 2015 Nicolas Goudal
+** Last update Fri Oct 30 03:22:31 2015 Nicolas Goudal
 */
 
 #ifndef INF_OP_H_
@@ -34,14 +34,15 @@ typedef enum		e_op_enum
   OP_ERROR_IDX
 }			t_op_enum;
 
-# endif /* !PARSER_H_ */
-
 typedef struct		s_op_nbr
 {
   char			*nbr;
   t_sign		sign;
   int			length;
 }			t_op_nbr;
+
+# endif /* !PARSER_H_ */
+
 
 typedef struct		s_op_data
 {

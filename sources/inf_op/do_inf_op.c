@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 21:45:55 2015 Nicolas Goudal
-** Last update Fri Oct 30 02:41:28 2015 Nicolas Goudal
+** Last update Fri Oct 30 03:15:16 2015 Nicolas Goudal
 */
 
 #include <stdlib.h>
@@ -38,7 +38,7 @@ t_op_nbr		*get_op_nbr(t_data *ctrl, t_tree *root)
 ** remplis results->sign
 ** remplis results->length
 */
-t_op_nbr		*format_result(t_op_nbr *result, t_tree *root);
+t_op_nbr		*format_result(t_op_nbr *result, t_sign sign)
 {
   return (NULL);
 }
@@ -58,7 +58,7 @@ t_op_nbr		*do_inf_op(t_data *ctrl, t_tree *root)
   }
   else
     return (get_op_nbr(ctrl, root));
-  while (root->data->c != ctrl->op_base[g.dico[i].op])
+  while (((t_op *)(root->data))->op != ctrl->op_base[g_dico[i].op])
     ++i;
   g_dico[i].inf_op(&calc);
   return (format_result(calc.result, root->sign));

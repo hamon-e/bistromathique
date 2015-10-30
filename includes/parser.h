@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 18:23:31 2015 Nicolas Goudal
-** Last update Fri Oct 30 02:41:35 2015 Nicolas Goudal
+** Last update Fri Oct 30 03:25:11 2015 Nicolas Goudal
 */
 
 #ifndef PARSER_H_
@@ -36,6 +36,13 @@ typedef enum	e_sign
   MINUS = -1
 }		t_sign;
 
+typedef struct		s_op_nbr
+{
+  char			*nbr;
+  t_sign		sign;
+  int			length;
+}			t_op_nbr;
+
 # endif /* !INF_OP_H_ */
 
 
@@ -52,7 +59,7 @@ typedef struct	s_nbr
 
 typedef struct	s_op
 {
-  char const	c;
+  char		op;
 }		t_op;
 
 typedef struct	s_tree

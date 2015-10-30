@@ -4,8 +4,8 @@
 ** Made by Nicolas Goudal
 ** Login   <goudal_n@epitech.net>
 **
-** Started on  Thu Oct 29 19:38:59 2015 Nicolas Goudal
-** Last update Thu Oct 29 21:53:45 2015 Nicolas Goudal
+** Started on  Fri Oct 30 03:24:17 2015 Nicolas Goudal
+** Last update Fri Oct 30 03:24:20 2015 Nicolas Goudal
 */
 
 #include <stdlib.h>
@@ -94,7 +94,7 @@ t_tree		*ope_high(t_data *ctrl, unsigned int *index)
   while (is_upopp(ctrl, index_save))
   {
     op = the_malloc(sizeof(t_op));
-    op->c = ctrl->str[index_save++];
+    op->op = ctrl->str[index_save++];
     node1 = create_node(OPP, op, node, NULL);
     node1->sign = PLUS;
     if (!(node1->right = num_low(ctrl, &index_save)))
@@ -121,7 +121,7 @@ t_tree		*ope_low(t_data *ctrl, unsigned int *index)
   while (is_lowopp(ctrl, index_save))
   {
     op = the_malloc(sizeof(t_op));
-    op->c = ctrl->str[index_save++];
+    op->op = ctrl->str[index_save++];
     node1 = create_node(OPP, op, node, NULL);
     node1->sign = PLUS;
     if (!(node1->right = ope_high(ctrl, &index_save)))
