@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 22:49:59 2015 Nicolas Goudal
-** Last update Fri Oct 30 05:51:34 2015 Nicolas Goudal
+** Last update Fri Oct 30 06:56:28 2015 Nicolas Goudal
 */
 
 #include <stdlib.h>
@@ -27,12 +27,12 @@ static t_op_nbr	*init_addresult(t_op_nbr *res, t_op_nbr *nbr1, t_op_nbr *nbr2)
     ++i;
   }
   rev_copy_str(nbr1->nbr, res->nbr, nbr1->length, res->length);
-  if (nbr1->sign == -1)
+  if (nbr1->sign == MINUS)
   {
     if (nbr1->length != nbr2->length)
       res->nbr[0] = '-' - '0';
     else
-      if (the_strcmp(nbr1->nbr, nbr2->nbr) > 0 || nbr2->sign == PLUS)
+      if (the_strcmp(nbr1->nbr, nbr2->nbr) > 0 || nbr2->sign == MINUS)
 	res->nbr[0] = '-' - '0';
   }
   return (res);
