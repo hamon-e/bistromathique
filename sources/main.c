@@ -34,9 +34,8 @@ int		main(int argc, char const *argv[])
   if (the_strlen(ctrl.str) != index)
     the_exit(1, ERROR_MSG);
   result = do_inf_op(&ctrl, root);
-  final_result = get_final_result(result, &ctrl, 0);
   if (result->sign == MINUS)
     the_putchar(1, '-');
-//  the_putstr(1, final_result);
+  final_result = get_final_result(result, &ctrl, 0);
   return (0);
 }
