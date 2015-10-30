@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 20:36:12 2015 Nicolas Goudal
-** Last update Thu Oct 29 20:36:28 2015 Nicolas Goudal
+** Last update Fri Oct 30 03:47:16 2015 Nicolas Goudal
 */
 
 #ifndef THE_LIB_H_
@@ -28,6 +28,7 @@ void			the_putstr(int const fd, char const *str);
 void			the_putnbr(int const fd, int nbr);
 
 unsigned int		the_strlen(char const *str);
+char			*the_strcpy(char *dest, char const *src);
 int			the_strcmp(char const *s1, char const *s2);
 int			the_atoi(char const *str);
 

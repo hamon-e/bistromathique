@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 22:49:59 2015 Nicolas Goudal
-** Last update Fri Oct 30 01:02:38 2015 Nicolas Goudal
+** Last update Fri Oct 30 05:13:28 2015 Nicolas Goudal
 */
 
 #include <stdlib.h>
@@ -45,7 +45,7 @@ static void	add_op(t_op_nbr *res, t_op_nbr *nbr2)
 
   idxn = nbr2->length - 1;
   idxr = res->length - 1;
-  while (idxn >= 0)
+  while (idxn > 0)
   {
     res->nbr[idxr] += nbr2->nbr[idxn];
     res->nbr[idxr - 1] += res->nbr[idxr] / 10;
@@ -68,7 +68,7 @@ void		inf_add(t_op_data *ctrl)
 
   a_to_i(ctrl->nbr1->nbr, ctrl->nbr1->length);
   a_to_i(ctrl->nbr2->nbr, ctrl->nbr2->length);
-  if (checkswap(ctrl->nbr1, ctrl->nbr2))
+  if (checkswap(ctrl->nbr2, ctrl->nbr1))
   {
     tmp = ctrl->nbr1;
     ctrl->nbr1 = ctrl->nbr2;

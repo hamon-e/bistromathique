@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 18:23:31 2015 Nicolas Goudal
-** Last update Fri Oct 30 03:25:11 2015 Nicolas Goudal
+** Last update Fri Oct 30 03:57:12 2015 Nicolas Goudal
 */
 
 #ifndef PARSER_H_
@@ -79,7 +79,8 @@ typedef struct	s_data
 }		t_data;
 
 
-t_op_nbr	*do_inf_op(t_data *ctrl, t_tree *racine);
+t_op_nbr	*do_inf_op(t_data *ctrl, t_tree *root);
+t_op_nbr	*get_op_nbr(t_data *ctrl, t_tree *node);
 
 t_tree		*ope_low(t_data *ctrl, unsigned int *index);
 bool		is_upopp(t_data *ctrl, unsigned int index);

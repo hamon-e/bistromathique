@@ -5,7 +5,7 @@
 ## Login   <goudal_n@epitech.net>
 ## 
 ## Started on  Thu Oct 29 01:58:41 2015 Nicolas Goudal
-## Last update Thu Oct 29 06:39:59 2015 Nicolas Goudal
+## Last update Fri Oct 30 03:47:34 2015 Nicolas Goudal
 ##
 
 NAME		=	the_lib.a
@@ -18,6 +18,7 @@ SRCS_NAMES	+=	the_putnbr.c
 SRCS_NAMES	+=	the_putstr.c
 SRCS_NAMES	+=	the_read.c
 SRCS_NAMES	+=	the_strcmp.c
+SRCS_NAMES	+=	the_strcpy.c
 SRCS_NAMES	+=	the_strlen.c
 SRCS_NAMES	+=	the_write.c
 

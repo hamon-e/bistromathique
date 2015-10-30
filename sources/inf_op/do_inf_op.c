@@ -4,11 +4,10 @@
 ** Made by Nicolas Goudal
 ** Login   <goudal_n@epitech.net>
 **
-** Started on  Thu Oct 29 21:45:55 2015 Nicolas Goudal
-** Last update Fri Oct 30 03:15:16 2015 Nicolas Goudal
+** Started on  Fri Oct 30 03:56:05 2015 Nicolas Goudal
+** Last update Fri Oct 30 04:23:20 2015 Nicolas Goudal
 */
 
-#include <stdlib.h>
 #include "the_lib.h"
 #include "parser.h"
 #include "inf_op.h"
@@ -22,25 +21,21 @@ static t_op_and_fun const	g_dico[5] =
   {OP_MOD_IDX, inf_mod},
 };
 
-/*
-** prend root->data->nbr et utilise ctrl->nbr_base pour retourner l'adress d'un
-** t_op_nbr malloc avec nbr en base 10 non signe et bien formate
-** (pas de 0 au debut), sign contenant l'enum du sign et length contenant la
-** longueur de nbr.
-*/
-t_op_nbr		*get_op_nbr(t_data *ctrl, t_tree *root)
+static t_op_nbr		*format_result(t_op_nbr *result, t_sign sign)
 {
-  return (NULL);
-}
+  int			i;
+  char			*tmp;
 
-/*
-** epure result->nbr (enleve le sign et les 0 au debut)
-** remplis results->sign
-** remplis results->length
-*/
-t_op_nbr		*format_result(t_op_nbr *result, t_sign sign)
-{
-  return (NULL);
+  i = 0;
+  result->sign = (result->nbr[0] == '-' ? MINUS : PLUS) * sign;
+  while (result->nbr[i] == '0' || result->nbr[i] == '-')
+    ++i;
+  tmp = the_malloc(sizeof(char)
+		   * ((result->length = the_strlen(result->nbr + i)) + 1));
+  the_strcpy(tmp, result->nbr + i);
+  free(result->nbr);
+  result->nbr = tmp;
+  return (result);
 }
 
 t_op_nbr		*do_inf_op(t_data *ctrl, t_tree *root)

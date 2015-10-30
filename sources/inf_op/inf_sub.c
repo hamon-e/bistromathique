@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 22:50:09 2015 Nicolas Goudal
-** Last update Thu Oct 29 23:47:09 2015 Nicolas Goudal
+** Last update Fri Oct 30 04:30:14 2015 Nicolas Goudal
 */
 
 #include "inf_op.h"
@@ -20,7 +20,7 @@ static void	sub_op_rmd(t_op_nbr *res)
     if (res->nbr[idx] < 0)
     {
       res->nbr[idx] += 10;
-      res->nbr[idx - 1] -= 1;
+      --res->nbr[idx - 1];
     }
     --idx;
   }
@@ -37,8 +37,8 @@ char		*sub_op(t_op_nbr *res, t_op_nbr *nbr2)
   {
     if (res->nbr[idxr] < nbr2->nbr[idxn])
     {
-      res->nbr[idxr] -= nbr2->nbr[idxn] + 10;
-      res->nbr[idxr - 1] -= 1;
+      res->nbr[idxr] += 10 - nbr2->nbr[idxn];
+      --res->nbr[idxr - 1];
     }
     else
       res->nbr[idxr] -= nbr2->nbr[idxn];

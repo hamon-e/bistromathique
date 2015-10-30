@@ -1,35 +1,34 @@
 /*
-** my_getnbr_base.c for ex_17 in /home/hamon_e/Piscine/Piscine_C_J06/ex_17
-** 
-** Made by Benoit Hamon
-** Login   <hamon_e@epitech.net>
-** 
-** Started on  Mon Oct 05 11:44:15 2015 Benoit Hamon
-** Last update Mon Oct 05 11:44:15 2015 Benoit Hamon
+** get_op_nbr.c for bistromathique in /home/morty/rendu/Piscine_C_bistromathique/sources/inf_op
+**
+** Made by Nicolas Goudal
+** Login   <goudal_n@epitech.net>
+**
+** Started on  Fri Oct 30 03:54:41 2015 Nicolas Goudal
+** Last update Fri Oct 30 05:20:31 2015 Nicolas Goudal
 */
 
-#include <stdlib.h>
 #include "the_lib.h"
 #include "parser.h"
 #include "inf_op.h"
 
 static int	compare(char const c, char const *base)
 {
-  int	i;
+  int		i;
 
   i = 0;
   while (base[i])
   {
     if (base[i] == c)
       return (i);
-    i++;
+    ++i;
   }
   return (-1);
 }
 
 static int	count(int nbr)
 {
-  int	i;
+  int		i;
 
   i = 0;
   while (nbr)
@@ -42,17 +41,17 @@ static int	count(int nbr)
 
 static char	*itoa(int nbr)
 {
-  char *res;
-  int	i;
+  char		*res;
+  int		i;
 
   i = count(nbr);
-  res = malloc(i + 1);
-  res[i] = 0;
+  res = the_malloc(sizeof(char) * (i + 1));
+  res[i] = '\0';
   while (nbr)
   {
     res[i - 1] = nbr % 10 + '0';
     nbr /= 10;
-    i--;
+    --i;
   }
   return (res);
 }
@@ -61,8 +60,8 @@ static char	*op(char *nbr1, char *nbr2, void (*f)(t_op_data *))
 {
   t_op_data	test;
 
-  test.nbr1 = malloc(sizeof(t_op_nbr));
-  test.nbr2 = malloc(sizeof(t_op_nbr));
+  test.nbr1 = the_malloc(sizeof(t_op_nbr));
+  test.nbr2 = the_malloc(sizeof(t_op_nbr));
   test.nbr1->nbr = nbr1;
   test.nbr1->sign = PLUS;
   test.nbr1->length = the_strlen(nbr1);
@@ -71,7 +70,7 @@ static char	*op(char *nbr1, char *nbr2, void (*f)(t_op_data *))
   test.nbr2->sign = PLUS;
   f(&test);
   while (*test.result->nbr == '0')
-      ++test.result->nbr;
+    ++test.result->nbr;
   free(test.nbr1);
   free(test.nbr2);
   return (test.result->nbr);
@@ -87,18 +86,19 @@ t_op_nbr	*get_op_nbr(t_data *ctrl, t_tree *node)
   int		n;
 
   str = (char *)((t_nbr *)(node->data))->nbr;
-  n = the_strlen(ctrl->op_base);
-  res = the_malloc(sizeof(char));
-  *res = 0;
-  i = -1;
-  while (str[++i])
+  n = the_strlen(ctrl->nbr_base);
+  res = the_malloc(sizeof(char) * 1);
+  *res = '\0';
+  i = 0;
+  while (compare(str[i], ctrl->nbr_base) != -1)
   {
-    tmp = op(res, itoa(n), inf_mult);
-    free(res);
-    res = op(tmp, itoa(compare(str[i], ctrl->op_base)), inf_add);
-    free(tmp);
+    res = op(res, itoa(n), inf_mult);
+    printf("res = %p\n", res);
+    res = op(res, itoa(compare(str[i], ctrl->nbr_base)), inf_add);
+    printf("res = %p\n", res);
+    ++i;
   }
-  nbr = malloc(sizeof(t_op_nbr));
+  nbr = the_malloc(sizeof(t_op_nbr));
   nbr->nbr = res;
   nbr->length = the_strlen(res);
   nbr->sign = node->sign;

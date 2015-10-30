@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 18:02:28 2015 Nicolas Goudal
-** Last update Fri Oct 30 03:10:42 2015 Nicolas Goudal
+** Last update Fri Oct 30 04:05:42 2015 Nicolas Goudal
 */
 
 #include "the_lib.h"
@@ -19,7 +19,7 @@
 */
 char		*get_final_result(t_op_nbr *result, t_data *ctrl)
 {
-  return (NULL);
+  return (result->nbr);
 }
 
 int		main(int argc, char const *argv[])
@@ -39,7 +39,8 @@ int		main(int argc, char const *argv[])
     the_exit(1, ERROR_MSG);
   result = do_inf_op(&ctrl, root);
   final_result = get_final_result(result, &ctrl);
+  if (result->sign == MINUS)
+    the_putchar(1, '-');
   the_putstr(1, final_result);
-  free(final_result);
   return (0);
 }

@@ -5,7 +5,7 @@
 ## Login   <goudal_n@epitech.net>
 ## 
 ## Started on  Thu Oct 29 02:01:41 2015 Nicolas Goudal
-## Last update Thu Oct 29 23:34:17 2015 Nicolas Goudal
+## Last update Fri Oct 30 03:59:37 2015 Nicolas Goudal
 ##
 
 NAME		=	calc
@@ -13,6 +13,7 @@ NAME		=	calc
 SRCS_NAMES	+=	main.c
 
 SRCS_NAMES	+=	inf_op/do_inf_op.c
+SRCS_NAMES	+=	inf_op/get_op_nbr.c
 SRCS_NAMES	+=	inf_op/char_shift.c
 SRCS_NAMES	+=	inf_op/check_tools.c
 SRCS_NAMES	+=	inf_op/inf_add.c
