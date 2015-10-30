@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 23:19:53 2015 Nicolas Goudal
-** Last update Fri Oct 30 00:46:00 2015 Nicolas Goudal
+** Last update Fri Oct 30 01:02:52 2015 Nicolas Goudal
 */
 
 #include "the_lib.h"
@@ -76,6 +76,8 @@ int		div_op(t_op_nbr *div, t_op_nbr *tmp)
 
 void		inf_div(t_op_data *ctrl)
 {
+  a_to_i(ctrl->nbr1->nbr, ctrl->nbr1->length);
+  a_to_i(ctrl->nbr2->nbr, ctrl->nbr2->length);
   if (!the_strcmp(ctrl->nbr2->nbr, "0"))
     the_exit(-3, ERROR_MSG);
   ctrl->result = init_divresult(ctrl->result, ctrl->nbr1, ctrl->nbr2);

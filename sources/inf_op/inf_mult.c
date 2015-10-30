@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 22:49:53 2015 Nicolas Goudal
-** Last update Fri Oct 30 00:46:55 2015 Nicolas Goudal
+** Last update Fri Oct 30 01:03:22 2015 Nicolas Goudal
 */
 
 #include <stdlib.h>
@@ -97,6 +97,8 @@ void		inf_mult(t_op_data *ctrl)
 {
   t_op_nbr		*tmp;
 
+  a_to_i(ctrl->nbr1->nbr, ctrl->nbr1->length);
+  a_to_i(ctrl->nbr2->nbr, ctrl->nbr2->length);
   if (checkswap(ctrl->nbr1, ctrl->nbr2))
   {
     tmp = ctrl->nbr1;

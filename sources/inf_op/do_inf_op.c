@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 21:45:55 2015 Nicolas Goudal
-** Last update Thu Oct 29 23:43:23 2015 Nicolas Goudal
+** Last update Fri Oct 30 01:08:30 2015 Nicolas Goudal
 */
 
 #include <stdlib.h>
@@ -13,21 +13,25 @@
 #include "parser.h"
 #include "inf_op.h"
 
-int			do_inf_op(t_data *ctrl, t_tree *racine)
+static t_op_and_fun const	g_dico[6] =
 {
-  static t_op_and_fun	dico[] =
-  {
-    {OP_ADD_IDX, inf_add},
-    {OP_SUB_IDX, inf_sub},
-    {OP_MULT_IDX, inf_mult},
-    {OP_DIV_IDX, inf_div},
-    {OP_MOD_IDX, inf_mod},
-    {OP_ERROR_IDX, NULL}
-  };
+  {OP_ADD_IDX, inf_add},
+  {OP_SUB_IDX, inf_sub},
+  {OP_MULT_IDX, inf_mult},
+  {OP_DIV_IDX, inf_div},
+  {OP_MOD_IDX, inf_mod},
+  {OP_ERROR_IDX, NULL}
+};
 
-  (void)(dico);
-  (void)(ctrl);
+t_op_nbr		*rec_op(t_tree *root,)
+{
+}
+
+t_nbr			do_inf_op(t_data *ctrl, t_tree *root)
+{
+
   if (!racine)
     the_exit(-3, ERROR_MSG);
-  return (42);
+  if (racine->)
+    return (42);
 }

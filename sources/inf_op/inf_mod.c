@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 23:19:50 2015 Nicolas Goudal
-** Last update Fri Oct 30 00:46:14 2015 Nicolas Goudal
+** Last update Fri Oct 30 01:03:11 2015 Nicolas Goudal
 */
 
 #include "the_lib.h"
@@ -36,5 +36,7 @@ static char	*mod_proc(t_op_nbr *res, t_op_nbr *nbr1, t_op_nbr *nbr2)
 
 void		inf_mod(t_op_data *ctrl)
 {
+  a_to_i(ctrl->nbr1->nbr, ctrl->nbr1->length);
+  a_to_i(ctrl->nbr2->nbr, ctrl->nbr2->length);
   mod_proc(ctrl->result, ctrl->nbr1, ctrl->nbr2);
 }
