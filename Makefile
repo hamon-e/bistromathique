@@ -26,6 +26,7 @@ SRCS_NAMES	+=	inf_op/str_tools.c
 SRCS_NAMES	+=	parser/parser_checkers.c
 SRCS_NAMES	+=	parser/peg_rules.c
 SRCS_NAMES	+=	parser/peg_tools.c
+SRCS_NAMES	+=	parser/free_tree.c
 
 SRCS_NAMES	+=	tools/check_argv.c
 SRCS_NAMES	+=	tools/init.c
