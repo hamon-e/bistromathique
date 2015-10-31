@@ -96,5 +96,6 @@ t_tree		*create_node(t_type type,
 
 int		check_argv(int argc, char const *argv[]);
 void		init(t_data *ctrl, char const *argv[]);
+void		free_tree(t_tree *root);
 
 #endif /* !PARSER_H_ */

@@ -37,5 +37,6 @@ int		main(int argc, char const *argv[])
   if (result->sign == MINUS)
     the_putchar(1, '-');
   final_result = get_final_result(result, &ctrl, 0);
+  free_tree(root);
   return (0);
 }
