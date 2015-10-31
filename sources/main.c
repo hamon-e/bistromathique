@@ -28,15 +28,15 @@ int		main(int argc, char const *argv[])
 
   index = 0;
   if (!check_argv(argc, argv)) // recuperer a valeur de sortie
-    the_exit(1, ERROR_MSG);
+    the_exit(1, SYNTAXE_ERROR_MSG);
   init(&ctrl, argv);
   root = ope_low(&ctrl, &index);
   if (the_strlen(ctrl.str) != index)
-    the_exit(1, ERROR_MSG);
+    the_exit(1, SYNTAXE_ERROR_MSG);
   result = do_inf_op(&ctrl, root);
   if (result->sign == MINUS)
     the_putchar(1, '-');
-  final_result = get_final_result(result, &ctrl, 0);
+  get_final_result(result, &ctrl, 0);
   free_tree(root);
   return (0);
 }

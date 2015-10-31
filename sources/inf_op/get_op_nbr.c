@@ -103,7 +103,7 @@ t_op_nbr	*get_op_nbr(t_data *ctrl, t_tree *node)
   return (nbr);
 }
 
-void		*get_final_result(t_op_nbr *result, t_data *ctrl, int rec)
+void		get_final_result(t_op_nbr *result, t_data *ctrl, int rec)
 {
   char	*str;
   int	n;
@@ -118,5 +118,4 @@ void		*get_final_result(t_op_nbr *result, t_data *ctrl, int rec)
   }
   else if (!rec)
     the_putchar(1, ctrl->nbr_base[the_atoi(op(str, itoa(n), inf_mod))]);
-  return (NULL);
 }
