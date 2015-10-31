@@ -114,9 +114,9 @@ void		*get_final_result(t_op_nbr *result, t_data *ctrl, int rec)
   {
     result->nbr = op(str, itoa(n), inf_div);
     get_final_result(result, ctrl, 1);
-    the_putchar(1, *(op(str, itoa(n), inf_mod)));
+    the_putchar(1, ctrl->nbr_base[the_atoi(op(str, itoa(n), inf_mod))]);
   }
   else if (!rec)
-    the_putchar(1, *(op(str, itoa(n), inf_mod)));
+    the_putchar(1, ctrl->nbr_base[the_atoi(op(str, itoa(n), inf_mod))]);
   return (NULL);
 }
