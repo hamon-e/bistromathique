@@ -20,7 +20,7 @@ static char	*init_read(size_t size_read)
   res = the_malloc(sizeof(char) * (size_read + 1));
   rd = the_read(0, res, size_read);
   if ((size_t)rd < size_read)
-    the_exit(1, "erreur");
+    the_exit(1, ERROR_MSG);
   res[rd] = '\0';
   return (res);
 }
