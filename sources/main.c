@@ -12,19 +12,12 @@
 #include "parser.h"
 #include "inf_op.h"
 
-/*
-** prend un t_op_nbr bien formate et en base 10 et retourne
-** une chaine malloc final bien formate, avec le signe,
-** dans la base demande et sans \n
-*/
-
 int		main(int argc, char const *argv[])
 {
   t_data	ctrl;
   unsigned int	index;
   t_tree	*root;
   t_op_nbr	*result;
-  char		*final_result;
 
   index = 0;
   if (!check_argv(argc, argv)) // recuperer a valeur de sortie
