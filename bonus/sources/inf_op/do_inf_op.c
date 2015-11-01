@@ -32,7 +32,7 @@ static t_op_nbr		*format_result(t_op_nbr *result, t_sign sign)
   result->sign = (result->nbr[0] == '-' ? MINUS : PLUS) * sign;
   while ((result->nbr[i] == '0' || result->nbr[i] == '-')
 	 && result->nbr[i] && result->nbr[i + 1]
-         && (!result->fracidx || n - i > result->fracidx))
+         && (result->fracidx == 0 || i != n - result->fracidx))
     ++i;
   tmp = the_malloc(sizeof(char)
 		   * ((result->length = the_strlen(result->nbr + i)) + 1));
