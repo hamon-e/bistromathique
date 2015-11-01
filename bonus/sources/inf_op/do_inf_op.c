@@ -24,12 +24,15 @@ static t_op_and_fun const	g_dico[5] =
 static t_op_nbr		*format_result(t_op_nbr *result, t_sign sign)
 {
   int			i;
+  int			n;
   char			*tmp;
 
   i = 0;
+  n = the_strlen(result->nbr);
   result->sign = (result->nbr[0] == '-' ? MINUS : PLUS) * sign;
   while ((result->nbr[i] == '0' || result->nbr[i] == '-')
-	 && result->nbr[i] && result->nbr[i + 1])
+	 && result->nbr[i] && result->nbr[i + 1]
+         && (!result->fracidx || n - i > result->fracidx))
     ++i;
   tmp = the_malloc(sizeof(char)
 		   * ((result->length = the_strlen(result->nbr + i)) + 1));

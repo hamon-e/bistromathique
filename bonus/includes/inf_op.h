@@ -66,6 +66,7 @@ void		inf_sub(t_op_data *ctrl);
 void		inf_mult(t_op_data *ctrl);
 void		inf_div(t_op_data *ctrl);
 void		inf_mod(t_op_data *ctrl);
+void		inf_div_int(t_op_data *ctrl);
 
 char		*sub_op(t_op_nbr *res, t_op_nbr *nbr2);
 int		div_op(t_op_nbr *div, t_op_nbr *tmp);
@@ -75,7 +76,7 @@ int		check_div(t_op_nbr *nbr1, t_op_nbr *nbr2);
 void		check_frac(t_op_nbr *nbr1, t_op_nbr *nbr2);
 
 void		char_shift(char *str, int length);
-void		chr_shift_to_the_left(t_op_nbr *nbr);
+void		char_shift_to_the_left(t_op_nbr *nbr);
 void		remove_zfrac(t_op_nbr *res);
 void		a_to_i(char *str, int length);
 void		i_to_a(char *str, int length);

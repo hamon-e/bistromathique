@@ -56,12 +56,10 @@ void		char_shift_to_the_left(t_op_nbr *nbr)
 void		remove_zfrac(t_op_nbr *res)
 {
   int		a;
-  int		b;
   int		idx;
   char		*str;
 
   idx = the_strlen(res->nbr) - 1;
-  b = idx - res->fracidx;
   a = 0;
   while (res->fracidx > 0 && res->nbr[idx] == '0')
   {

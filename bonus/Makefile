@@ -23,6 +23,7 @@ SRCS_NAMES	+=	inf_op/inf_mult.c
 SRCS_NAMES	+=	inf_op/inf_sub.c
 SRCS_NAMES	+=	inf_op/str_tools.c
 SRCS_NAMES	+=	inf_op/check_frac.c
+SRCS_NAMES	+=	inf_op/div_sub.c
 
 SRCS_NAMES	+=	parser/parser_checkers.c
 SRCS_NAMES	+=	parser/peg_rules.c

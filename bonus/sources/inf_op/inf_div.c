@@ -56,25 +56,6 @@ static t_op_nbr	*init_divresult(t_op_nbr *res, t_op_nbr *nbr1, t_op_nbr *nbr2)
   return (res);
 }
 
-int		div_op(t_op_nbr *div, t_op_nbr *tmp)
-{
-  int		i;
-
-  i = 0;
-  while (42)
-  {
-    if (check_div(tmp, div) != -1)
-    {
-      sub_op(tmp, div);
-      a_to_i(tmp->nbr, tmp->length);
-    }
-    else
-      break ;
-    ++i;
-  }
-  return (i);
-}
-
 void		inf_div(t_op_data *ctrl)
 {
   if (!*ctrl->nbr2->nbr || !the_strcmp(ctrl->nbr2->nbr, "0"))
@@ -86,4 +67,14 @@ void		inf_div(t_op_data *ctrl)
   ctrl->result = init_divresult(ctrl->result, ctrl->nbr1, ctrl->nbr2);
   div_process(ctrl->result, ctrl->nbr1, ctrl->nbr2, ctrl->tmp);
   remove_zfrac(ctrl->result);
+}
+
+void		inf_div_int(t_op_data *ctrl)
+{
+  if (!*ctrl->nbr2->nbr || !the_strcmp(ctrl->nbr2->nbr, "0"))
+    the_exit(-3, ERROR_MSG);
+  a_to_i(ctrl->nbr1->nbr, ctrl->nbr1->length);
+  a_to_i(ctrl->nbr2->nbr, ctrl->nbr2->length);
+  ctrl->result = init_divresult(ctrl->result, ctrl->nbr1, ctrl->nbr2);
+  div_process(ctrl->result, ctrl->nbr1, ctrl->nbr2, ctrl->tmp);
 }
