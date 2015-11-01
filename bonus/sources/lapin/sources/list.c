@@ -1,15 +1,25 @@
-#include <stdio.h>
+/*
+** list.c for sources in /home/hamon_e/Piscine/Piscine_C_bistromathique/bonus/sources/lapin/sources
+** 
+** Made by Benoit Hamon
+** Login   <hamon_e@epitech.net>
+** 
+** Started on  Sun Nov 01 12:03:09 2015 Benoit Hamon
+** Last update Sun Nov 01 12:03:09 2015 Benoit Hamon
+*/
+
 #include <stdlib.h>
 #include <lapin.h>
 #include "header.h"
 
-t_list	*new_elem(char c)
+t_list		*new_elem(char c)
 {
   t_list	*a;
 
   a = malloc(sizeof(t_list));
   a->next = 0;
   a->data = c;
+  return (a);
 }
 
 void	free_list(t_list *res)
@@ -38,7 +48,6 @@ char	*list_to_str(t_list *res)
   char	*str;
 
   str = malloc(sizeof(char) * (count_list(res) + 1));
-  printf("Transformation list en str\n");
   i = 0;
   while (res->next)
   {
@@ -48,7 +57,6 @@ char	*list_to_str(t_list *res)
   str[i++] = res->data;
   str[i] = 0;
   free_list(res);
-  printf("Chaine a calculer : %s\n", str);
   return (str);
 }
 
@@ -62,14 +70,4 @@ void	add_list(t_list *res, char c)
       res = res->next;
     res->next = new_elem(c);
   }
-}
-
-void	print_list(t_list *res)
-{
-  while (res)
-  {
-    printf("%c", res->data);
-    res = res->next;
-  }
-  printf("\n");
 }

@@ -9,14 +9,13 @@
 */
 
 #include <lapin.h>
-#include <stdio.h>
 #include <unistd.h>
 #include "header.h"
 
 char		*calc(char *str)		//GOTO BISTRO
 {
   char	*res;
-  res = strdup("01234567891012131415");
+  res = strdup("415");
   printf("%s\n", res);
   return (res);
 }
@@ -25,9 +24,7 @@ int		main()
 {
   t_sfml	sfml;
 
-  printf("Begin LOADING\n");
   init(&sfml);
-  printf("END LOADING\n");
   bunny_set_key_response(keyboard);
   bunny_set_click_response(mouse);
   loop(&sfml);

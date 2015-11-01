@@ -12,7 +12,7 @@
 #include <string.h>
 #include "header.h"
 
-void			print_calc(t_sfml *sfml, int i)
+void				print_calc(t_sfml *sfml, int i)
 {
   static t_bunny_position	pos;
   static int			bol = 0;
@@ -38,7 +38,7 @@ void			print_calc(t_sfml *sfml, int i)
   }
 }
 
-static void		print_res(t_sfml *sfml, char *res)
+static void			print_res(t_sfml *sfml, char *res)
 {
   while (*res)
   {
@@ -49,9 +49,9 @@ static void		print_res(t_sfml *sfml, char *res)
   sfml->res->data = '@';
 }
 
-void			calc_res(t_sfml *sfml)
+void				calc_res(t_sfml *sfml)
 {
-  char	*res;
+  char				*res;
 
   res = list_to_str(sfml->res);
   sfml->res = new_elem('@');

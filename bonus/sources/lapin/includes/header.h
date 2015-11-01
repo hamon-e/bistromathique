@@ -54,11 +54,7 @@ typedef struct		s_sfml
 t_list			*new_elem(char c);
 void			free_list(t_list *res);
 void			add_list(t_list *res, char c);
-void			print_list(t_list *res);
 char			*list_to_str(t_list *res);
-
-char			get_opp(int i);
-int			get_nbr(char c);
 
 t_bunny_response	keyboard(t_bunny_event_state key, t_bunny_keysym t, void *data);
 t_bunny_response	mouse(t_bunny_event_state key, t_bunny_mousebutton t, void *data);

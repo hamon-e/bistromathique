@@ -11,14 +11,14 @@
 #include <lapin.h>
 #include "header.h"
 
-t_bunny_response	keyboard(t_bunny_event_state key, t_bunny_keysym t, void *data)
+t_bunny_response	keyboard(t_bunny_event_state key,
+				 t_bunny_keysym t,
+				 void *data)
 {
   t_sfml		*sfml;
 
   sfml = (t_sfml *)data;
-  if (t == BKS_P)
-    print_list(sfml->res);
-  else if (key == 1 && t >= BKS_0 && t <= BKS_9)
+  if (key == 1 && t >= BKS_0 && t <= BKS_9)
   {
     print_calc(sfml, t - 26);
     blit_n(sfml, sfml->img->boutons_p[t - 26]);
