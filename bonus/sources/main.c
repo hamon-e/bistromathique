@@ -20,7 +20,7 @@ int		main(int argc, char const *argv[])
   t_op_nbr	*result;
 
   index = 0;
-  if (!check_argv(argc, argv)) // recuperer a valeur de sortie
+  if (!check_argv(argc, argv))
     the_exit(1, SYNTAXE_ERROR_MSG);
   init(&ctrl, argv);
   root = ope_low(&ctrl, &index);

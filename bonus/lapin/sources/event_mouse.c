@@ -9,9 +9,9 @@
 */
 
 #include <lapin.h>
-#include "header.h"
+#include "the_lapin.h"
 
-static char			get_opp(int i)
+static char		get_opp(int i)
 {
   if (i == 10)
     return ('(');
@@ -82,8 +82,8 @@ static int		mouse_nbr(t_sfml *sfml, const t_bunny_position *pos)
 }
 
 t_bunny_response	mouse(t_bunny_event_state key,
-    t_bunny_mousebutton t,
-    void *data)
+			      t_bunny_mousebutton t,
+			      void *data)
 {
   t_bunny_position	*pos;
   t_sfml		*sfml;

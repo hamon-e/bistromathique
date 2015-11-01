@@ -10,7 +10,7 @@
 
 #include <stdlib.h>
 #include <lapin.h>
-#include "header.h"
+#include "the_lapin.h"
 
 t_list		*new_elem(char c)
 {
@@ -31,7 +31,7 @@ void	free_list(t_list *res)
 
 static int	count_list(t_list *res)
 {
-  int	i;
+  int		i;
 
   i = 0;
   while (res)

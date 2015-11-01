@@ -73,7 +73,7 @@ LDFLAGS		+=
 DBFLAGS		=	-g -g3 -ggdb
 
 
-.PHONY		:	all lib project bonus debug clean fclean re
+.PHONY		:	all lib project bonus lapin debug clean fclean re
 
 all		:	project
 
@@ -87,6 +87,9 @@ project		:	lib
 bonus		:	lib
 			@printf "\033[36m------------------------------BONUS COMPILATION------------------------------\n\033[37m"
 			@$(MAKE) $(BNS_NAME)
+
+lapin		:
+			make -C lapin/
 
 debug		:
 			@printf "\033[36m------------------------------BONUS COMPILATION------------------------------\n\033[37m"
@@ -114,6 +117,7 @@ $(DB_NAME)	:	$(DB_OBJS) $(LIB_PATH)
 
 clean		:
 			@$(MAKE) -C $(LIB_DIR) $@
+			@$(MAKE) -C lapin $@
 			@printf "\033[36m--------------------------------BONUS DELETION-------------------------------\n\033[37m"
 			$(RM) $(OBJS)
 			@$(RM) $(DB_OBJS)
@@ -122,6 +126,7 @@ clean		:
 
 fclean		:
 			@$(MAKE) -C $(LIB_DIR) $@
+			@$(MAKE) -C lapin $@
 			@printf "\033[36m--------------------------------BONUS DELETION-------------------------------\n\033[37m"
 			$(RM) $(OBJS)
 			@printf "\033[31m[OBJECTS DELETED]\n\033[37m"

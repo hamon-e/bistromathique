@@ -10,7 +10,27 @@
 
 #include <lapin.h>
 #include <stdio.h>
-#include "header.h"
+#include "the_lapin.h"
+
+static void	the_sprintf(char *s1, char *s2, int nb)
+{
+  int	i;
+
+  i = 0;
+  while (s2[i])
+  {
+    if (s2[i] == '%')
+    {
+      s1[i] = nb / 10 + '0';
+      s1[i + 1] = nb % 10 + '0';
+      i++;
+    }
+    else
+      s1[i] = s2[i];
+    i++;
+  }
+  s1[i] = 0;
+}
 
 static void	init_img_nbr(t_img *img)
 {
@@ -18,17 +38,17 @@ static void	init_img_nbr(t_img *img)
   char		*str;
 
   i = 0;
-  str = malloc(sizeof(char) * 10);
-  img->top_screen = bunny_load_picture("img/top_screen.bmp");
-  img->top_screen_save = bunny_load_picture("img/top_screen.bmp");
-  img->bot_screen = bunny_load_picture("img/bot_screen.bmp");
-  img->cadre = bunny_load_picture("img/cadre.png");
-  img->cadre1 = bunny_load_picture("img/cadre1.png");
+  str = malloc(sizeof(char) * 17);
+  img->top_screen = bunny_load_picture("lapin/img/top_screen.bmp");
+  img->top_screen_save = bunny_load_picture("lapin/img/top_screen.bmp");
+  img->bot_screen = bunny_load_picture("lapin/img/bot_screen.bmp");
+  img->cadre = bunny_load_picture("lapin/img/cadre.png");
+  img->cadre1 = bunny_load_picture("lapin/img/cadre1.png");
   while (i < 20)
   {
     if (i != 13 && i != 18)
     {
-      sprintf(str, "img/%d.bmp", i);
+      the_sprintf(str, "lapin/img/%d.bmp", i);
       img->boutons_img[i] = bunny_load_picture(str);
     }
     else

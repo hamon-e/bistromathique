@@ -9,7 +9,7 @@
 */
 
 #include <lapin.h>
-#include "header.h"
+#include "the_lapin.h"
 
 t_bunny_response	keyboard(t_bunny_event_state key,
 				 t_bunny_keysym t,

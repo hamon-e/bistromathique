@@ -50,8 +50,8 @@ static int	check_size(char const *size)
 
 static int	check_cmp_base_opp(char const *base, char const *opp)
 {
-  int	i;
-  int	j;
+  int		i;
+  int		j;
 
   i = -1;
   while (base[++i])

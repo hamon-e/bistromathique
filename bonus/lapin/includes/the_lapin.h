@@ -11,21 +11,21 @@
 #ifndef HEADER_H_
 # define HEADER_H_
 
-#define NBRS_X		64
-#define NBRS_Y		92
-#define D_NBRS_X	60
-#define D_NBRS_Y	60
+# define NBRS_X		64
+# define NBRS_Y		92
+# define D_NBRS_X	60
+# define D_NBRS_Y	60
 
-#define SIZE_X		1245
-#define SIZE_Y		857
-#define SIZE_Y_TOP	199
+# define SIZE_X		1245
+# define SIZE_Y		857
+# define SIZE_Y_TOP	199
 
-#define BASE_X		42
-#define BASE_Y		20
-#define WHITE_X		29
-#define WHITE_Y		20
-#define IMG_X		265
-#define IMG_Y		105
+# define BASE_X		42
+# define BASE_Y		20
+# define WHITE_X	29
+# define WHITE_Y	20
+# define IMG_X		265
+# define IMG_Y		105
 
 typedef struct		s_list
 {
@@ -56,8 +56,12 @@ void			free_list(t_list *res);
 void			add_list(t_list *res, char c);
 char			*list_to_str(t_list *res);
 
-t_bunny_response	keyboard(t_bunny_event_state key, t_bunny_keysym t, void *data);
-t_bunny_response	mouse(t_bunny_event_state key, t_bunny_mousebutton t, void *data);
+t_bunny_response	keyboard(t_bunny_event_state key,
+				 t_bunny_keysym t,
+				 void *data);
+t_bunny_response	mouse(t_bunny_event_state key,
+			      t_bunny_mousebutton t,
+			      void *data);
 
 void			init(t_sfml *sfml);
 
@@ -68,4 +72,4 @@ void			calc_res(t_sfml *sfml);
 
 char			*calc(char *str);
 
-#endif
+#endif /* !HEADER_H_ */

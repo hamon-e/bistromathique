@@ -80,8 +80,8 @@ t_op_nbr	*get_op_nbr(t_data *ctrl, t_tree *node)
 
 void		get_final_result(t_op_nbr *result, t_data *ctrl, int rec)
 {
-  char	*str;
-  int	n;
+  char		*str;
+  int		n;
 
   str = result->nbr;
   n = the_strlen(ctrl->nbr_base);

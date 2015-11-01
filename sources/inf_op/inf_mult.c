@@ -95,7 +95,7 @@ static t_op_nbr		*init_mulresult(t_op_nbr *res,
 
 void		inf_mult(t_op_data *ctrl)
 {
-  t_op_nbr		*tmp;
+  t_op_nbr	*tmp;
 
   a_to_i(ctrl->nbr1->nbr, ctrl->nbr1->length);
   a_to_i(ctrl->nbr2->nbr, ctrl->nbr2->length);

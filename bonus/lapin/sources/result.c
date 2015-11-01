@@ -9,8 +9,7 @@
 */
 
 #include <lapin.h>
-#include <string.h>
-#include "header.h"
+#include "the_lapin.h"
 
 void				print_calc(t_sfml *sfml, int i)
 {
@@ -21,7 +20,9 @@ void				print_calc(t_sfml *sfml, int i)
   {
     pos.x = 0;
     pos.y = 0;
-    bunny_blit(&sfml->img->top_screen->buffer, sfml->img->top_screen_save, &pos);
+    bunny_blit(&sfml->img->top_screen->buffer,
+	       sfml->img->top_screen_save,
+	       &pos);
     pos.x = D_NBRS_X;
     pos.y = D_NBRS_Y;
     bol = 1;

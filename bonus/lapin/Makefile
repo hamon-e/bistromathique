@@ -8,7 +8,7 @@
 ## Last update Sun Nov  1 11:27:49 2015 lin patrick
 ##
 
-NAME		=	lapin
+NAME		=	the_lapin
 
 CC		=	gcc
 
@@ -42,11 +42,12 @@ all		:	$(NAME)
 
 $(NAME)		:	$(OBJS)
 			$(CC) -o $(NAME) $(OBJS) $(LDFLAGS)
+			mv $(NAME) ../
 
 clean		:
 			$(RM) $(OBJS)
 
 fclean		:	clean
-			$(RM) $(NAME)
+			$(RM) ../$(NAME)
 
 re		:	fclean all
