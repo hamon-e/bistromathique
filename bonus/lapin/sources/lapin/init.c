@@ -5,7 +5,7 @@
 ** Login   <hamon_e@epitech.net>
 ** 
 ** Started on  mer. oct. 28 21:49:15 2015 Benoit Hamon
-** Last update mer. oct. 28 21:49:15 2015 Benoit Hamon
+** Last update Sun Nov  1 22:47:31 2015 lin patrick
 */
 
 #include <lapin.h>
@@ -14,7 +14,7 @@
 
 static void	the_sprintf(char *s1, char *s2, int nb)
 {
-  int	i;
+  int		i;
 
   i = 0;
   while (s2[i])
