@@ -39,4 +39,3 @@ char		*the_itoa(int nbr)
   }
   return (res);
 }
-
