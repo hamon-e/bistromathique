@@ -58,15 +58,22 @@ t_op_nbr	*get_op_nbr(t_data *ctrl, t_tree *node)
   str = (char *)((t_nbr *)(node->data))->nbr;
   n = the_strlen(ctrl->nbr_base);
   res = the_malloc(sizeof(char) * 1);
+  nbr = the_malloc(sizeof(t_op_nbr));
   *res = '\0';
+  nbr->fracidx = 0;
   i = 0;
-  while (compare(str[i], ctrl->nbr_base) != -1)
+  while (compare(str[i], ctrl->nbr_base) != -1 || str[i] == '.')
   {
+    if (str[i] == '.' && i++)
+    {
+      nbr->fracidx = i;
+      continue ;
+    }
     res = op(res, the_itoa(n), inf_mult);
     res = op(res, the_itoa(compare(str[i], ctrl->nbr_base)), inf_add);
     ++i;
   }
-  nbr = the_malloc(sizeof(t_op_nbr));
+  nbr->fracidx = nbr->fracidx ? i - nbr->fracidx : 0;
   nbr->nbr = res;
   nbr->length = the_strlen(res);
   nbr->sign = node->sign;
@@ -80,10 +87,12 @@ void		get_final_result(t_op_nbr *result, t_data *ctrl, int rec)
 
   str = result->nbr;
   n = the_strlen(ctrl->nbr_base);
+  if (rec && rec == nbr->fracidx)
+    the_putchar(1, '.');
   if (*str && *str != '0')
   {
     result->nbr = op(str, the_itoa(n), inf_div);
-    get_final_result(result, ctrl, 1);
+    get_final_result(result, ctrl, rec + 1);
     the_putchar(1, ctrl->nbr_base[the_atoi(op(str, the_itoa(n), inf_mod))]);
   }
   else if (!rec)
