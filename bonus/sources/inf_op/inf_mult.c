@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 22:49:53 2015 Nicolas Goudal
-** Last update Fri Oct 30 05:12:56 2015 Nicolas Goudal
+** Last update Sun Nov  1 12:10:00 2015 lin patrick
 */
 
 #include <stdlib.h>
@@ -82,6 +82,7 @@ static t_op_nbr		*init_mulresult(t_op_nbr *res,
 {
   res = the_malloc(sizeof(t_op_nbr));
   res->length = nbr1->length + nbr2->length + 1;
+  res->fracidx = nbr1->fracidx + nbr2->fracidx;
   if (nbr1->sign * nbr2->sign == -1)
     ++res->length;
   if (!(res->nbr = the_malloc(res->length + 1)))
@@ -96,9 +97,9 @@ static t_op_nbr		*init_mulresult(t_op_nbr *res,
 void		inf_mult(t_op_data *ctrl)
 {
   t_op_nbr		*tmp;
-
-  a_to_i(ctrl->nbr1->nbr, ctrl->nbr1->length);
-  a_to_i(ctrl->nbr2->nbr, ctrl->nbr2->length);
+  check_frac(ctrl->nbr1, ctrl->nbr2);
+  a_to_i(ctrl->nbr1->nbr, ctrl->nbr1->length - 1);
+  a_to_i(ctrl->nbr2->nbr, ctrl->nbr2->length - 1);
   if (checkswap(ctrl->nbr1, ctrl->nbr2))
   {
     tmp = ctrl->nbr1;
@@ -107,4 +108,5 @@ void		inf_mult(t_op_data *ctrl)
   }
   ctrl->result = init_mulresult(ctrl->result, ctrl->nbr1, ctrl->nbr2);
   mul_process(ctrl->result, ctrl->nbr1, ctrl->nbr2, ctrl->tmp);
+  remove_zfrac(ctrl->result);
 }
