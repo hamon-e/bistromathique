@@ -40,6 +40,12 @@ void				print_calc(t_sfml *sfml, int i)
   }
 }
 
+static void			my_print(t_sfml *sfml, int i)
+{
+  print_calc(sfml, i);
+  sfml->res->data = '1';
+}
+
 static void			print_res(t_sfml *sfml, t_op_nbr *result)
 {
   char				*res;
@@ -53,14 +59,16 @@ static void			print_res(t_sfml *sfml, t_op_nbr *result)
   }
   res = result->nbr;
   n = the_strlen(res);
-  i = 0;
-  while (res[i])
+  if (result->sign == MINUS)
+    my_print(sfml, 16);
+  if (n == result->fracidx)
+    my_print(sfml, 0);
+  i = -1;
+  while (res[++i])
   {
     if (result->fracidx && i == n - result->fracidx)
-      print_calc(sfml, 19);
-    print_calc(sfml, res[i] - '0');
-    sfml->res->data = '1';
-    ++i;
+      my_print(sfml, 19);
+    my_print(sfml, res[i] - '0');
   }
 }
 

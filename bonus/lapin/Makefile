@@ -137,7 +137,7 @@ fclean		:
 			@printf "\033[36m--------------------------------BONUS DELETION-------------------------------\n\033[37m"
 			$(RM) $(OBJS)
 			@printf "\033[31m[OBJECTS DELETED]\n\033[37m"
-			$(RM) $(NAME)
+			$(RM) ../$(NAME)
 			@$(RM) $(DB_NAME)
 			@printf "\033[31m[BINARY DELETED]\n\033[37m"
 

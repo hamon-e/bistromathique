@@ -44,4 +44,5 @@ int		main()
   loop(&sfml);
   bunny_loop(sfml.img->windows, 100, &sfml);
   bunny_stop(sfml.img->windows);
+  return (0);
 }
