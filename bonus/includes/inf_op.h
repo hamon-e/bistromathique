@@ -15,7 +15,6 @@
 
 #  define SYNTAXE_ERROR_MSG	"syntax error"
 #  define ERROR_MSG		"Error"
-#  define ACC			7
 
 typedef enum		e_sign
 {
@@ -45,6 +44,7 @@ typedef struct		s_op_nbr
 
 # endif /* !PARSER_H_ */
 
+# define ACC			7
 
 typedef struct		s_op_data
 {

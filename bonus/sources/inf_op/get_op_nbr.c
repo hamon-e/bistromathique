@@ -26,36 +26,6 @@ static int	compare(char const c, char const *base)
   return (-1);
 }
 
-static int	count(int nbr)
-{
-  int		i;
-
-  i = 0;
-  while (nbr)
-  {
-    ++i;
-    nbr /= 10;
-  }
-  return (i);
-}
-
-static char	*itoa(int nbr)
-{
-  char		*res;
-  int		i;
-
-  i = count(nbr);
-  res = the_malloc(sizeof(char) * (i + 1));
-  res[i] = '\0';
-  while (nbr)
-  {
-    res[i - 1] = nbr % 10 + '0';
-    nbr /= 10;
-    --i;
-  }
-  return (res);
-}
-
 static char	*op(char *nbr1, char *nbr2, void (*f)(t_op_data *))
 {
   t_op_data	test;
@@ -71,6 +41,7 @@ static char	*op(char *nbr1, char *nbr2, void (*f)(t_op_data *))
   f(&test);
   while (*test.result->nbr == '0' && *test.result->nbr && test.result->nbr[1])
     ++test.result->nbr;
+  i_to_a(test.nbr1->nbr, test.nbr1->length);
   free(test.nbr1);
   free(test.nbr2);
   return (test.result->nbr);
@@ -87,17 +58,44 @@ t_op_nbr	*get_op_nbr(t_data *ctrl, t_tree *node)
   str = (char *)((t_nbr *)(node->data))->nbr;
   n = the_strlen(ctrl->nbr_base);
   res = the_malloc(sizeof(char) * 1);
+  nbr = the_malloc(sizeof(t_op_nbr));
+  nbr->fracidx = 0;
   *res = '\0';
   i = 0;
-  while (compare(str[i], ctrl->nbr_base) != -1)
+  while (compare(str[i], ctrl->nbr_base) != -1 || str[i] == '.')
   {
-    res = op(res, itoa(n), inf_mult);
-    res = op(res, itoa(compare(str[i], ctrl->nbr_base)), inf_add);
+    if (str[i] == '.' && i++)
+    {
+      nbr->fracidx = i;
+      continue ;
+    }
+    res = op(res, the_itoa(n), inf_mult);
+    res = op(res, the_itoa(compare(str[i], ctrl->nbr_base)), inf_add);
     ++i;
   }
-  nbr = the_malloc(sizeof(t_op_nbr));
+  nbr->fracidx = nbr->fracidx ? (i - nbr->fracidx) : 0;
   nbr->nbr = res;
   nbr->length = the_strlen(res);
   nbr->sign = node->sign;
+  printf("%d : %s\n", nbr->fracidx, nbr->nbr);
   return (nbr);
+}
+
+void		get_final_result(t_op_nbr *result, t_data *ctrl, int rec)
+{
+  char	*str;
+  int	n;
+
+  str = result->nbr;
+  n = the_strlen(ctrl->nbr_base);
+  if (rec && result->fracidx == rec)
+    the_putchar(1, '.');
+  if (*str && *str != '0')
+  {
+    result->nbr = op(str, the_itoa(n), inf_div);
+    get_final_result(result, ctrl, rec + 1);
+    the_putchar(1, ctrl->nbr_base[the_atoi(op(str, the_itoa(n), inf_mod))]);
+  }
+  else if (!rec)
+    the_putchar(1, ctrl->nbr_base[the_atoi(op(str, the_itoa(n), inf_mod))]);
 }

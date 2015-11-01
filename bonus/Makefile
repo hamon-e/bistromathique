@@ -10,9 +10,29 @@
 
 NAME		=	the_bistromatik
 
-SRCS_NAMES	+=	.c
+SRCS_NAMES	+=	main.c
 
-HDRS_NAMES	+=	.h
+SRCS_NAMES	+=	inf_op/do_inf_op.c
+SRCS_NAMES	+=	inf_op/get_op_nbr.c
+SRCS_NAMES	+=	inf_op/char_shift.c
+SRCS_NAMES	+=	inf_op/check_tools.c
+SRCS_NAMES	+=	inf_op/inf_add.c
+SRCS_NAMES	+=	inf_op/inf_div.c
+SRCS_NAMES	+=	inf_op/inf_mod.c
+SRCS_NAMES	+=	inf_op/inf_mult.c
+SRCS_NAMES	+=	inf_op/inf_sub.c
+SRCS_NAMES	+=	inf_op/str_tools.c
+
+SRCS_NAMES	+=	parser/parser_checkers.c
+SRCS_NAMES	+=	parser/peg_rules.c
+SRCS_NAMES	+=	parser/peg_tools.c
+SRCS_NAMES	+=	parser/free_tree.c
+
+SRCS_NAMES	+=	tools/check_argv.c
+SRCS_NAMES	+=	tools/init.c
+
+HDRS_NAMES	+=	parser.h
+HDRS_NAMES	+=	inf_op.h
 
 SRCS		=	$(addprefix $(SRC_DIR), $(SRCS_NAMES))
 
