@@ -5,7 +5,7 @@
 ** Login   <goudal_n@epitech.net>
 **
 ** Started on  Thu Oct 29 22:12:08 2015 Nicolas Goudal
-** Last update Fri Oct 30 15:38:48 2015 lin patrick
+** Last update Sun Nov  1 15:17:48 2015 lin patrick
 */
 
 #ifndef INF_OP_H_
@@ -72,8 +72,11 @@ int		div_op(t_op_nbr *div, t_op_nbr *tmp);
 
 int		checkswap(t_op_nbr *nbr1, t_op_nbr *nbr2);
 int		check_div(t_op_nbr *nbr1, t_op_nbr *nbr2);
+void		check_frac(t_op_nbr *nbr1, t_op_nbr *nbr2);
 
 void		char_shift(char *str, int length);
+void		chr_shift_to_the_left(t_op_nbr *nbr);
+void		remove_zfrac(t_op_nbr *res);
 void		a_to_i(char *str, int length);
 void		i_to_a(char *str, int length);
 void		copy_str(char *src, char *dest, int start, int min);
