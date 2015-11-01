@@ -11,6 +11,9 @@
 #ifndef HEADER_H_
 # define HEADER_H_
 
+#include "parser.h"
+#include "inf_op.h"
+
 # define NBRS_X		64
 # define NBRS_Y		92
 # define D_NBRS_X	60
@@ -49,6 +52,7 @@ typedef struct		s_sfml
 {
   t_list		*res;
   t_img			*img;
+  t_data		*ctrl;
 }			t_sfml;
 
 t_list			*new_elem(char c);
@@ -63,13 +67,13 @@ t_bunny_response	mouse(t_bunny_event_state key,
 			      t_bunny_mousebutton t,
 			      void *data);
 
-void			init(t_sfml *sfml);
+void			init_sfml(t_sfml *sfml);
 
 void			loop(void *data);
 void			blit_n(t_sfml *sfml, t_bunny_position pos);
 void			print_calc(t_sfml *sfml, int i);
 void			calc_res(t_sfml *sfml);
 
-char			*calc(char *str);
+t_op_nbr		*calc(t_data *ctrl, char *str);
 
 #endif /* !HEADER_H_ */

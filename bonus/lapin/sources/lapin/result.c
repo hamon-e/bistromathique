@@ -9,6 +9,7 @@
 */
 
 #include <lapin.h>
+#include "the_lib.h"
 #include "the_lapin.h"
 
 void				print_calc(t_sfml *sfml, int i)
@@ -39,15 +40,28 @@ void				print_calc(t_sfml *sfml, int i)
   }
 }
 
-static void			print_res(t_sfml *sfml, char *res)
+static void			print_res(t_sfml *sfml, t_op_nbr *result)
 {
-  while (*res)
+  char				*res;
+  int				i;
+  int				n;
+
+  if (!result)
   {
-    print_calc(sfml, *res - '0');
-    sfml->res->data = '1';
-    ++res;
+    print_calc(sfml, 0);
+    return ;
   }
-  sfml->res->data = '@';
+  res = result->nbr;
+  n = the_strlen(res);
+  i = 0;
+  while (res[i])
+  {
+    if (result->fracidx && i == n - result->fracidx)
+      print_calc(sfml, 19);
+    print_calc(sfml, res[i] - '0');
+    sfml->res->data = '1';
+    ++i;
+  }
 }
 
 void				calc_res(t_sfml *sfml)
@@ -56,5 +70,6 @@ void				calc_res(t_sfml *sfml)
 
   res = list_to_str(sfml->res);
   sfml->res = new_elem('@');
-  print_res(sfml, calc(res));
+  print_res(sfml, calc(sfml->ctrl, res));
+  sfml->res->data = '@';
 }

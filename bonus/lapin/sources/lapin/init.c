@@ -106,7 +106,7 @@ static void	init_img_opp(t_img *img)
   img->boutons_p[19].y = BASE_Y + (IMG_Y + WHITE_Y) * 4;
 }
 
-void		init(t_sfml *sfml)
+void		init_sfml(t_sfml *sfml)
 {
   sfml->img = malloc(sizeof(t_img));
   sfml->img->windows = bunny_start(SIZE_X, SIZE_Y, false, "Easystromatik");

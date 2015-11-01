@@ -73,7 +73,7 @@ LDFLAGS		+=
 DBFLAGS		=	-g -g3 -ggdb
 
 
-.PHONY		:	all lib project bonus lapin debug clean fclean re
+.PHONY		:	all lib project bonus the_lapin debug clean fclean re
 
 all		:	project
 
@@ -88,7 +88,8 @@ bonus		:	lib
 			@printf "\033[36m------------------------------BONUS COMPILATION------------------------------\n\033[37m"
 			@$(MAKE) $(BNS_NAME)
 
-lapin		:
+the_lapin		:
+			@$(MAKE) -C $(LIB_DIR)
 			make -C lapin/
 
 debug		:

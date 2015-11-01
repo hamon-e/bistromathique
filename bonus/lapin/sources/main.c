@@ -1,35 +1,47 @@
 /*
-** main.c for bistromathique in /home/morty/rendu/Piscine_C_bistromathique/sources
-**
-** Made by Nicolas Goudal
-** Login   <goudal_n@epitech.net>
-**
-** Started on  Thu Oct 29 18:02:28 2015 Nicolas Goudal
-** Last update Fri Oct 30 04:05:42 2015 Nicolas Goudal
+** main.c for lapin in /home/hamon_e/Piscine/Piscine_C_bistromathique/lapin
+** 
+** Made by Benoit Hamon
+** Login   <hamon_e@epitech.net>
+** 
+** Started on  mer. oct. 28 22:09:23 2015 Benoit Hamon
+** Last update mer. oct. 28 22:09:23 2015 Benoit Hamon
 */
 
+#include <lapin.h>
+#include <unistd.h>
 #include "the_lib.h"
-#include "parser.h"
-#include "inf_op.h"
+#include "the_lapin.h"
 
-int		main(int argc, char const *argv[])
+t_op_nbr	*calc(t_data *ctrl, char *str)
 {
-  t_data	ctrl;
-  unsigned int	index;
   t_tree	*root;
   t_op_nbr	*result;
+  unsigned int	index;
 
   index = 0;
-  if (!check_argv(argc, argv))
-    the_exit(1, SYNTAXE_ERROR_MSG);
-  init(&ctrl, argv);
-  root = ope_low(&ctrl, &index);
-  if (the_strlen(ctrl.str) != index)
-    the_exit(1, SYNTAXE_ERROR_MSG);
-  result = do_inf_op(&ctrl, root);
-  if (result->sign == MINUS)
-    the_putchar(1, '-');
-  get_final_result(result, &ctrl, 0);
-  free_tree(root);
-  return (0);
+  (ctrl->nbr_base = the_malloc(11));
+  ctrl->nbr_base = "0123456789";
+  ctrl->op_base = the_malloc(8);
+  ctrl->op_base= "()+-*/%";
+  ctrl->str = str;
+  root = ope_low(ctrl, &index);
+  if (the_strlen(ctrl->str) != index)
+    return (NULL);
+  result = do_inf_op(ctrl, root);
+  return (result);
+}
+
+int		main()
+{
+  t_sfml	sfml;
+  t_data	ctrl;
+
+  sfml.ctrl = &ctrl;
+  init_sfml(&sfml);
+  bunny_set_key_response(keyboard);
+  bunny_set_click_response(mouse);
+  loop(&sfml);
+  bunny_loop(sfml.img->windows, 100, &sfml);
+  bunny_stop(sfml.img->windows);
 }
