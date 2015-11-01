@@ -31,5 +31,6 @@ unsigned int		the_strlen(char const *str);
 char			*the_strcpy(char *dest, char const *src);
 int			the_strcmp(char const *s1, char const *s2);
 int			the_atoi(char const *str);
+char			*the_itoa(int nbr);
 
 #endif /* !THE_LIB_H_ */

@@ -11,6 +11,7 @@
 NAME		=	the_lib.a
 
 SRCS_NAMES	+=	the_atoi.c
+SRCS_NAMES	+=	the_itoa.c
 SRCS_NAMES	+=	the_exit.c
 SRCS_NAMES	+=	the_malloc.c
 SRCS_NAMES	+=	the_putchar.c
