@@ -18,7 +18,6 @@ int		main(int argc, char const *argv[])
   unsigned int	index;
   t_tree	*root;
   t_op_nbr	*result;
-  char		*final_result;
 
   index = 0;
   if (!check_argv(argc, argv)) // recuperer a valeur de sortie
