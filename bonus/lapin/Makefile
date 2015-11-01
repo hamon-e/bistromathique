@@ -74,7 +74,7 @@ RM		=	rm -f
 CFLAGS		+=	-W -Wall -Wextra
 CFLAGS		+=	-pedantic
 CFLAGS		+=	-I $(INC_DIR) -I $(LIB_INC_DIR)
-CFLAGS		+=	-L/home/${USER}/.froot/include
+CFLAGS		+=	-I /home/${USER}/.froot/include
 
 LDFLAGS		+=	-lsfml-audio -lsfml-graphics -lsfml-window
 LDFLAGS		+=	-lsfml-system -lstdc++ -ldl -lm
